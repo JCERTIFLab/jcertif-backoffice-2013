@@ -5,8 +5,8 @@ var fsf = Ext.widget({
 	url : 'save-form.php',
 	frame : true,
 	title : 'Connectez-vous ici',
-	bodyPadding : '30 30 30 30',
-	width : 150,
+	bodyPadding : '10 40 30',
+	width : 50,
 	fieldDefaults : {
 		msgTarget : 'side',
 		labelWidth : 50
@@ -29,9 +29,9 @@ var fsf = Ext.widget({
 
 	}],
 	buttons: [{
-        text: 'Save'
+        text: 'Connection'
     },{
-        text: 'Cancel'
+        text: 'Annuler'
     }]
 
 });
