@@ -1,0 +1,26 @@
+[
+	{
+    	"pays": "FR",
+        "nom": "France"
+	},
+    {
+    	"pays": "DE",
+        "nom": "Allemagne"
+    },
+    {
+    	"pays": "IT",
+        "nom": "Italie"
+    },
+    {
+        "pays": "ES",
+        "nom": "Espagne"
+    },
+    {
+        "pays": "UK",
+        "nom": "Royaume-Uni"
+    },
+    {
+        "pays": "PT",
+        "nom": "Portugal"
+    }
+]
