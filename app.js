@@ -1,4 +1,4 @@
-
+BACKEND_URL='http://jcertif-backend.roddet.cloudbees.net';
 
 
 Ext.application({
@@ -6,15 +6,13 @@ Ext.application({
     name       : 'JCERTIF',
     appFolder  : 'app',
     controllers : [
-        'mainController'
+        'MainController',
+        'LoginController'
     ],
 
     launch : function() {
-
         Ext.create('Ext.container.Viewport', {
-
             layout: 'border',
-
             items : [
                 {
                     region    : 'center',
@@ -25,7 +23,7 @@ Ext.application({
                             title : 'Connexion administrateur JCertif',
                             items : [
                                 {
-                                    xtype : 'formulaire'                          
+                                    xtype : 'Login'                          
                                 }
                             ]
                         },
