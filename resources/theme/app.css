@@ -1,1 +1,50 @@
-@import url('../../ext/resources/css/ext-all.css');
+@import url('../../src/libs/extjs-4.2.0/resources/ext-theme-neptune/ext-theme-neptune-all.css');
+
+.admin-options-add {
+    background-image: url(../images/add.gif) !important;
+}
+
+.admin-options-remove {
+    background-image: url(../images/delete.gif) !important;
+}
+
+.admin-options {
+    width: 16px;
+    height: 16px;
+    background-image: url(images/details.gif) !important;
+}
+                
+.admin-options-list {
+    padding: 0 3px 0 3px;
+}
+
+.admin-options-list-item {
+    margin-top: 3px;
+    padding-left: 20px;
+    font-size: 11px;
+    line-height: 20px;
+    cursor: pointer;
+    background: url(../images/details.gif) no-repeat 0 2px;
+    border: 1px solid #fff;
+}
+
+.admin-options-list .x-item-selected {
+    font-weight: bold;
+    color: #15428B;
+    background-color: #DFE8F6;
+    border: 1px dotted #A3BAE9;
+}
+
+.admin-options-list-item-hover {
+    background-color: #eee;
+}
+
+.admin-options-grid .x-grid-rowbody {
+    margin: 5px 20px 10px 25px !important;
+    color: #555;
+    font-size: 11px;
+}
+
+.x-tab-bar-body {
+    border-width: 1px 1px 0 1px !important;
+}

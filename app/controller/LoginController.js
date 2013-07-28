@@ -1,56 +1,45 @@
-Ext.define('JCERTIF.controller.LoginController', {
+Ext.define('JCertifBO.controller.LoginController', {
 	extend : 'Ext.app.Controller',
-	views : [
-	    'Login',
-	],
+	views : ['Login'],
+	model : 'User',
 	init : function() {
-		this.control(
-			{
-	            'Login button[action=envoyer]': {
-	                click : this.connect
-	            },
-	            'Login button[action=reset]': {
-	                click : this.reset
-	            },
-	            'Login button[action=categories]': {
-	            	click : this.showCategories
-	            }
-	        }
-        );
+		this.control({
+			'login button[action=login]' : {
+				click : this.connect
+			},
+			'login button[action=reset]' : {
+				click : this.reset
+			}
+		});
 	},
 	connect : function(btn) {
-		var form = btn.up('Login').getForm();
-
-        if (form.isValid()) {		
-            Ext.Ajax.request({
-    			url: BACKEND_URL + '/admin',
-    			jsonData : Ext.JSON.encode(form.getValues()),
-			    success: function(response){
-
-			        Ext.MessageBox.alert('Reponse positive du serveur : (positive et vide = normal) ' , response.responseText);
-			    },
-			    failure: function(response){
-			    	Ext.MessageBox.alert('Reponse négative du serveur : ' ,response.responseText);
-			    }
+		var win = btn.up('window'), form = win.down('form').getForm(), emailData = win.down('form').down('#email').getValue();
+					
+		if (form.isValid()) {
+			Ext.Ajax.request({
+				url : BACKEND_URL + '/admin',
+				jsonData : Ext.JSON.encode(form.getValues()),
+				success : function(response) {
+				  
+				  var user = Ext.create('JCertifBO.model.User', { email: emailData });			  
+					Ext.create('JCertifBO.view.Home', {});				
+					win.close();
+					
+				},
+				failure : function(response) {
+					Ext.MessageBox.show({
+						title : 'Login Failed',
+						msg : response.responseText,
+						buttons : Ext.MessageBox.OK,
+						icon : Ext.MessageBox.ERROR
+					});
+				}
 			});
-        }
-
-      
+		}
 
 	},
+	
 	reset : function(btn) {
-		btn.up('Login').getForm().reset();
-	},
-	  // Autre exemple à supprimer d'appel au service Récupération de la liste des catégories
-	showCategories : function(btn){
-		Ext.Ajax.request({
-    			url: BACKEND_URL + '/ref/category/list',
-			    success: function(response){
-			        Ext.MessageBox.alert('Reponse positive du serveur : ' , response.responseText);
-			    },
-			    failure: function(response){
-			    	Ext.MessageBox.alert('Reponse négative du serveur : ' ,response.responseText);
-			    }
-			});
+		btn.up('window').down('form').getForm().reset();
 	}
 });
