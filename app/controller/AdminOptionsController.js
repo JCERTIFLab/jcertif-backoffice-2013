@@ -2,7 +2,7 @@ Ext.define('JCertifBO.controller.AdminOptionsController', {
     extend: 'Ext.app.Controller',
     
     stores: ['AdminOptions'],
-    models: ['AdminOption', 'Referentiel'],
+    models: ['AdminOption', 'Referentiel', 'Sponsor', 'Site', 'Room', 'Session', 'Speaker', 'Participant'],
     
     views: [
         'AdminOptionsList'
