@@ -4,15 +4,15 @@ Ext.define('JCertifBO.store.AdminOptions', {
 	autoLoad : true,
 
 	data: [
-        {name: 'Cat&eacute;gories', createUrl: '/ref/category/new', loadUrl: '/ref/category/list', updateUrl: '/ref/category/update', model: 'JCertifBO.model.Referentiel'},
-        {name: 'Statuts de session', createUrl: '/ref/sessionstatus/new', loadUrl: '/ref/sessionstatus/list', updateUrl: '/ref/sessionstatus/update', model: 'JCertifBO.model.Referentiel'},
-        {name: 'Niveaux de sponsoring', createUrl: '/ref/sponsorlevel/new', loadUrl: '/ref/sponsorlevel/list', updateUrl: '/ref/sponsorlevel/update', model: 'JCertifBO.model.Referentiel'},
-        {name: 'Civilit&eacute;', createUrl: '/ref/title/new', loadUrl: '/ref/title/list', updateUrl: '/ref/title/update', model: 'JCertifBO.model.Referentiel'},
-        {name: 'Sponsors', createUrl: '/sponsor/new', loadUrl: '/sponsor/list', updateUrl: '/rsponsor/update', model: 'JCertifBO.model.Sponsor'},
-        {name: 'Sites', createUrl: '/site/new', loadUrl: '/site/list', updateUrl: '/site/update', model: 'JCertifBO.model.Site'},
-        {name: 'Salles', createUrl: '/room/new', loadUrl: '/room/list', updateUrl: '/room/update', model: 'JCertifBO.model.Room'},
-        {name: 'Sessions', createUrl: '/session/new', loadUrl: '/session/list', updateUrl: '/session/update', model: 'JCertifBO.model.Session'},
-        {name: 'Pr&eacute;sentateurs', createUrl: '/speaker/new', loadUrl: '/speaker/list', updateUrl: '/speaker/update', model: 'JCertifBO.model.Speaker'},
-        {name: 'Participants', createUrl: '/participant/new', loadUrl: '/participant/list', updateUrl: '/participant/update', model: 'JCertifBO.model.Participant'}
+        {name: 'Cat&eacute;gories', createUrl: '/ref/category/new', loadUrl: '/ref/category/list', removeUrl: '/ref/category/remove', model: 'JCertifBO.model.Category', grid: 'referentielgrid'},
+        {name: 'Statuts de session', createUrl: '/ref/sessionstatus/new', loadUrl: '/ref/sessionstatus/list', removeUrl: '/ref/sessionstatus/remove', model: 'JCertifBO.model.SessionStatus', grid: 'referentielgrid'},
+        {name: 'Niveaux de sponsoring', createUrl: '/ref/sponsorlevel/new', loadUrl: '/ref/sponsorlevel/list', removeUrl: '/ref/sponsorlevel/remove', model: 'JCertifBO.model.SponsorLevel', grid: 'referentielgrid'},
+        {name: 'Civilit&eacute;', createUrl: '/ref/title/new', loadUrl: '/ref/title/list', removeUrl: '/ref/title/remove', model: 'JCertifBO.model.Title', grid: 'referentielgrid'},
+        {name: 'Sponsors', createUrl: '/sponsor/new', loadUrl: '/sponsor/list', updateUrl: '/sponsor/update', removeUrl: '/sponsor/remove', model: 'JCertifBO.model.Sponsor', grid: 'sponsorgrid'},
+        {name: 'Sites', createUrl: '/site/new', loadUrl: '/site/list', updateUrl: '/site/update', removeUrl: '/site/remove', model: 'JCertifBO.model.Site', grid: 'sitegrid'},
+        {name: 'Salles', createUrl: '/room/new', loadUrl: '/room/list', updateUrl: '/room/update', removeUrl: '/room/remove', model: 'JCertifBO.model.Room', grid: 'roomgrid'},
+        {name: 'Sessions', createUrl: '/session/new', loadUrl: '/session/list', updateUrl: '/session/update', removeUrl: '/session/remove', model: 'JCertifBO.model.Session', grid: 'sessiongrid'},
+        {name: 'Pr&eacute;sentateurs', createUrl: '/speaker/register', loadUrl: '/speaker/list', updateUrl: '/speaker/update', removeUrl: '/speaker/remove', model: 'JCertifBO.model.Speaker', grid: 'speakergrid'},
+        {name: 'Participants', createUrl: '/participant/register', loadUrl: '/participant/list', updateUrl: '/participant/update', removeUrl: '/participant/remove', model: 'JCertifBO.model.Participant', grid: 'participantgrid'}
     ]
 });

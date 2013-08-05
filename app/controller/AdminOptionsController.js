@@ -2,7 +2,7 @@ Ext.define('JCertifBO.controller.AdminOptionsController', {
     extend: 'Ext.app.Controller',
     
     stores: ['AdminOptions'],
-    models: ['AdminOption', 'Referentiel', 'Sponsor', 'Site', 'Room', 'Session', 'Speaker', 'Participant'],
+    models: ['AdminOption', 'Category', 'SponsorLevel', 'Title', 'SessionStatus', 'Sponsor', 'Site', 'Room', 'Session', 'Speaker', 'Participant'],
     
     views: [
         'AdminOptionsList'
@@ -13,7 +13,13 @@ Ext.define('JCertifBO.controller.AdminOptionsController', {
         {ref: 'adminOptionsList', selector: 'adminoptionslist'},
         {ref: 'optionShow', selector: 'optionshow'},
         {ref: 'adminOptionsData', selector: 'adminoptionslist dataview'},
-        {ref: 'optionGrid', selector: 'optiongrid'},
+        {ref: 'referentielGrid', selector: 'referentielgrid'},
+        {ref: 'sponsorGrid', selector: 'sponsorgrid'},
+        {ref: 'siteGrid', selector: 'sitegrid'},
+        {ref: 'roomGrid', selector: 'roomgrid'},
+        {ref: 'sessionGrid', selector: 'sessiongrid'},
+        {ref: 'speakerGrid', selector: 'speakergrid'},
+        {ref: 'participantGrid', selector: 'participantgrid'}
     ],
     
     requires: [
@@ -39,10 +45,12 @@ Ext.define('JCertifBO.controller.AdminOptionsController', {
         dataview.getSelectionModel().select(store.getAt(0));
     },
     
-    loadData: function(selModel, selected) {
+    loadData: function(selModel, records) {
         
-        var grid = this.getOptionGrid(),
-            option = selected[0];
+        var option = records[0], gridName = option.get('grid');
+        this.getOptionShow().removeAll();
+        this.getOptionShow().add({xtype: gridName, flex: 1});
+        var grid = this.getGrid(gridName);
             
         var store = Ext.create('Ext.data.Store', {
             model: option.get('model'),
@@ -58,19 +66,29 @@ Ext.define('JCertifBO.controller.AdminOptionsController', {
         if (option) {
             this.getOptionShow().setTitle(option.get('name'));
             grid.enable(); 
-            var fields = store.model.prototype.fields;
-            var columns = [];
-						for (var i = 0; i < fields.keys.length; i++) {
-							var columnName = fields.keys[i];
-							columns.push({
-								header:     columnName,
-								dataIndex:  columnName,
-								filterable: true
-							});
-						}
-						grid.reconfigure(store, columns);
+						grid.reconfigure(store);
             grid.getSelectionModel().select(store.getAt(0));           
         }
         
+    },
+    
+    getGrid: function(gridName) {
+      if('referentielgrid' == gridName){
+        return this.getReferentielGrid();
+      }else if('sponsorgrid' == gridName){
+        return this.getSponsorGrid();
+      }else if('sitegrid' == gridName){
+        return this.getSiteGrid();
+      }else if('roomgrid' == gridName){
+        return this.getRoomGrid();
+      }else if('sessiongrid' == gridName){
+        return this.getSessionGrid();
+      }else if('speakergrid' == gridName){
+        return this.getSpeakerGrid();
+      }else if('participantgrid' == gridName){
+        return this.getParticipantGrid();
+      }else{
+        console.log('What the fuck!')
+      }
     }
 });

@@ -1,11 +1,30 @@
 @import url('../../src/libs/extjs-4.2.0/resources/ext-theme-neptune/ext-theme-neptune-all.css');
 
+.app-header {
+    background-color: #323232;
+    padding: 10px;
+}
+
+.app-header h1 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.app-header h1,
+.app-header label {
+    color: #eee;
+}
+
 .admin-options-add {
     background-image: url(../images/add.gif) !important;
 }
 
 .admin-options-remove {
     background-image: url(../images/delete.gif) !important;
+}
+
+.admin-options-refresh {
+    background-image: url(../images/table_refresh.png) !important;
 }
 
 .admin-options {
@@ -45,6 +64,74 @@
     font-size: 11px;
 }
 
+.preview .x-panel-body {
+    background:#fff;
+    color:#222;
+    font:normal 12px tahoma,verdana,arial,sans-serif;
+}
+
+.preview .x-panel-body p {
+    line-height:18px;
+    margin:8px 0;
+}
+
+.preview .x-panel-body ul {
+    margin-left:18px;
+}
+
+.preview .x-panel-body ul li {
+    display:list-item;
+    list-style-image:none !important;
+    list-style-position:outside !important;
+    list-style-type:disc !important;
+    margin-left:18px;
+}
+
+.preview .x-panel-body pre, #preview .x-panel-body code {
+    background:#f1f1f1;
+    display:block;
+}
+
+.preview .x-panel-body h4.post-author {
+    font-weight:normal;
+    color:#555;
+    font-size:11px;
+}
+.preview .x-panel-body span.post-date {
+    font-weight:normal;
+    color:#555;
+    float:right;
+    font-size:11px;
+}
+.preview .x-panel-body div.post-data {
+    background:#f1f2f4;
+    padding:5px;
+    border-bottom:1px solid #dadadb;
+}
+.preview .x-panel-body div.post-body {
+    padding:10px;
+}
+        
 .x-tab-bar-body {
     border-width: 1px 1px 0 1px !important;
+}
+
+.x-grid-row-over .x-grid-cell-inner {
+    font-weight: bold;
+}
+
+/* allow grid text selection in Firefox and WebKit based browsers */
+ 
+.x-selectable,
+.x-selectable * {
+    -moz-user-select: text !important;
+    -khtml-user-select: text !important;
+    -webkit-user-select: text !important;
+}
+ 
+.x-grid-row td, .x-grid-summary-row td, .x-grid-cell-text, .x-grid-hd-text, .x-grid-hd, .x-grid-row, .x-grid-row, .x-grid-cell, .x-unselectable
+{
+    -moz-user-select: text !important;
+    -khtml-user-select: text !important;
+    -webkit-user-select: text !important;
 }

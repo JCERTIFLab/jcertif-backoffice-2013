@@ -3,13 +3,13 @@ Ext.define("JCertifBO.view.Home", {
 	requires: [	    
       'JCertifBO.view.Viewer',
       'JCertifBO.view.AdminOptionsList',
-      'Ext.layout.container.Border'
+      'Ext.layout.container.Border',
+      'JCertifBO.view.AppHeader'
   ],
 	layout: 'border',
 	items: [{
         region: 'north',
-        title: 'JCertif BackOffice',
-        xtype: 'panel'
+        xtype: 'appheader'
     },{
         region: 'center',
         xtype: 'viewer'      

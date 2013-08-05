@@ -1,18 +1,11 @@
-Ext.define("JCertifBO.view.Viewport", {
-    extend: 'Ext.container.Viewport',
-    requires: [
-  	    'JCertifBO.view.Login'
-    ],
+Ext.define("JCertifBO.view.Viewport", function (){
+
+      return {
+        extend: 'Ext.container.Viewport',
+        requires: [
+      	    'JCertifBO.view.Login',
+      	    'JCertifBO.view.Home'
+        ]
+      };
     
-    layout: {
-      type: 'vbox',
-      align: 'center',
-      pack: 'center'
-    },
-    items : [
-        {
-            region    : 'center',
-            xtype     : 'login'
-        }
-    ]
 });

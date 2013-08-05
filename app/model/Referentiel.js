@@ -5,6 +5,5 @@ Ext.define('JCertifBO.model.Referentiel', {
         { name: 'label', type: 'auto' },
         { name: 'version', type: 'auto' },
         { name: 'deleted', type: 'auto' }
-
     ]
 });

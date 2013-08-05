@@ -10,7 +10,9 @@ Ext.define('JCertifBO.model.AdminOption', {
         { name: 'createUrl', type: 'auto' },
         { name: 'loadUrl', type: 'auto' },
         { name: 'updateUrl', type: 'auto' },
-        { name: 'model', type: 'auto' }
+        { name: 'removeUrl', type: 'auto' },
+        { name: 'model', type: 'auto' },
+        { name: 'grid', type: 'auto' }
 
     ]
 });
