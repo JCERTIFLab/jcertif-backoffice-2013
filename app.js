@@ -1,4 +1,4 @@
-BACKEND_URL='http://jcertif-backend.msomda.cloudbees.net/';
+BACKEND_URL='http://jcertif-backend.msomda.cloudbees.net';
 
 Ext.application({
     name       : 'JCertifBO',
