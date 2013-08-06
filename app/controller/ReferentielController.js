@@ -46,7 +46,7 @@ Ext.define('JCertifBO.controller.ReferentielController', {
     addReferentiel: function(btn){
       var win = btn.up('window'), form = win.down('form').getForm();
       form.setValues({
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider')
       });
@@ -73,7 +73,7 @@ Ext.define('JCertifBO.controller.ReferentielController', {
       var referentiel = this.getReferentielGrid().getSelectionModel().getSelection()[0];
       var data = {
         label: referentiel.data.label,
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider'),
       };

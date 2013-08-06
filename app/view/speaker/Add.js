@@ -108,8 +108,8 @@ Ext.define("JCertifBO.view.speaker.Add", {
   					hidden: true
   				},{
   					xtype : 'textfield',
-  					name : 'email',
-  					itemId : 'email',
+  					name : 'user',
+  					itemId : 'user',
   					hidden: true
   				},{
   					xtype : 'textfield',

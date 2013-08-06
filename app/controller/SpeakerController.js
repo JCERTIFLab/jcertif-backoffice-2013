@@ -49,7 +49,7 @@ Ext.define('JCertifBO.controller.SpeakerController', {
     addSpeaker: function(btn){
       var win = btn.up('window'), form = win.down('form').getForm();
       form.setValues({
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider')
       });
@@ -76,7 +76,7 @@ Ext.define('JCertifBO.controller.SpeakerController', {
       var speaker = this.getSpeakerGrid().getSelectionModel().getSelection()[0];
       var data = {
         email: speaker.raw.email,
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider'),
       };
@@ -108,7 +108,7 @@ Ext.define('JCertifBO.controller.SpeakerController', {
       //on rajoute la version de l'objet avant modification
       data['version'] = speaker.raw['version'];
       data['email'] = speaker.raw['email'];
-      data['email'] = Ext.util.Cookies.get('email');
+      data['user'] = Ext.util.Cookies.get('user');
       data['access_token'] = Ext.util.Cookies.get('access_token');
       data['provider'] = Ext.util.Cookies.get('provider');
 

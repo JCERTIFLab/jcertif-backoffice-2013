@@ -49,7 +49,7 @@ Ext.define('JCertifBO.controller.SessionController', {
     addSession: function(btn){
       var win = btn.up('window'), form = win.down('form').getForm();
       form.setValues({
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider')
       });
@@ -76,7 +76,7 @@ Ext.define('JCertifBO.controller.SessionController', {
       var session = this.getSessionGrid().getSelectionModel().getSelection()[0];
       var data = {
         id: session.raw.id,
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider'),
       };
@@ -108,7 +108,7 @@ Ext.define('JCertifBO.controller.SessionController', {
       //on rajoute la version de l'objet avant modification
       data['version'] = session.raw['version'];
       data['id'] = session.raw['id'];
-      data['email'] = Ext.util.Cookies.get('email');
+      data['user'] = Ext.util.Cookies.get('user');
       data['access_token'] = Ext.util.Cookies.get('access_token');
       data['provider'] = Ext.util.Cookies.get('provider');
 

@@ -95,8 +95,8 @@ Ext.define("JCertifBO.view.site.Add", {
   					hidden: true
   				},{
   					xtype : 'textfield',
-  					name : 'email',
-  					itemId : 'email',
+  					name : 'user',
+  					itemId : 'user',
   					hidden: true
   				},{
   					xtype : 'textfield',

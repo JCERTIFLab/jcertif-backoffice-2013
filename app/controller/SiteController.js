@@ -49,7 +49,7 @@ Ext.define('JCertifBO.controller.SiteController', {
     addSite: function(btn){
       var win = btn.up('window'), form = win.down('form').getForm();
       form.setValues({
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider')
       });
@@ -76,7 +76,7 @@ Ext.define('JCertifBO.controller.SiteController', {
       var site = this.getSiteGrid().getSelectionModel().getSelection()[0];
       var data = {
         id: site.raw.id,
-        email: Ext.util.Cookies.get('email'),
+        user: Ext.util.Cookies.get('user'),
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider'),
       };
@@ -108,8 +108,7 @@ Ext.define('JCertifBO.controller.SiteController', {
       //on rajoute la version de l'objet avant modification
       data['version'] = site.raw['version'];
       data['id'] = site.raw['id'];
-      data['email'] = Ext.util.Cookies.get('email');
-      data['email'] = Ext.util.Cookies.get('email');
+      data['user'] = Ext.util.Cookies.get('user');
       data['access_token'] = Ext.util.Cookies.get('access_token');
       data['provider'] = Ext.util.Cookies.get('provider');
 
