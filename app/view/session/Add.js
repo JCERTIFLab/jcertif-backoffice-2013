@@ -16,7 +16,7 @@ Ext.define("JCertifBO.view.session.Add", {
   		align : 'center',
   		pack : 'center'
   	},
-  
+  	
   	initComponent : function() {
         
   		this.items = [ {
@@ -44,8 +44,11 @@ Ext.define("JCertifBO.view.session.Add", {
   					emptyText : 'description',
   					allowblank : false,
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Status',
+  					store: Ext.create('JCertifBO.store.SessionStatuses'),
+  					displayField: 'label',
+            valueField: 'label',
   					name : 'status',
   					itemId : 'status',
   					emptyText : 'status',
@@ -58,8 +61,11 @@ Ext.define("JCertifBO.view.session.Add", {
   					emptyText : 'keyword',
   					allowblank : false,
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Category',
+  					store: Ext.create('JCertifBO.store.Categories'),
+  					displayField: 'label',
+            valueField: 'label',
   					name : 'category',
   					itemId : 'category',
   					emptyText : 'category',
@@ -79,14 +85,21 @@ Ext.define("JCertifBO.view.session.Add", {
   					itemId : 'end',
   					emptyText : 'end'
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Speakers',
+  					store: Ext.create('JCertifBO.store.Speakers'),
+  					tpl: '<tpl for="."><div class="x-boundlist-item">{firstname} {lastname}</div></tpl>',
+            valueField: 'email',
+            multiSelect: true,
   					name : 'speakers',
   					itemId : 'speakers',
   					emptyText : 'speakers'
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Room',
+  					store: Ext.create('JCertifBO.store.Rooms'),
+  					displayField: 'name',
+            valueField: 'id',
   					name : 'room',
   					itemId : 'room',
   					emptyText : 'room'

@@ -8,6 +8,8 @@ Ext.define("JCertifBO.view.speaker.Grid", {
     
     border: false,
     
+    store : 'Titles',
+    
     initComponent: function() {
         
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
@@ -22,7 +24,10 @@ Ext.define("JCertifBO.view.speaker.Grid", {
                 text: 'Email',
                 dataIndex: 'email',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'textfield',
+                  vtype: 'email'
+                }
             }, {
                 text: 'Password',
                 dataIndex: 'password',
@@ -33,7 +38,12 @@ Ext.define("JCertifBO.view.speaker.Grid", {
                 text: 'Title',
                 dataIndex: 'title',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: this.store,
+        					displayField: 'label',
+                  valueField: 'label'
+                }
             }, {
                 text: 'Lastname',
                 dataIndex: 'lastname',

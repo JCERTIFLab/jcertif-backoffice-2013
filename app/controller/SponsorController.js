@@ -1,7 +1,7 @@
 Ext.define('JCertifBO.controller.SponsorController', {
     extend: 'Ext.app.Controller',
     
-    stores: ['AdminOptions'],
+    stores: ['AdminOptions', 'SponsorLevels'],
     models: ['AdminOption', 'Sponsor'],
     
     views: [

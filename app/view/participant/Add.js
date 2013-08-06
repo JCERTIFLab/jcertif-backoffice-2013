@@ -24,6 +24,7 @@ Ext.define("JCertifBO.view.participant.Add", {
   			border : 0,
   			items : [ {
   					xtype : 'textfield',
+  					vtype : 'email',
   					fieldLabel : 'Email',
   					name : 'email',
   					itemId : 'email',
@@ -38,8 +39,11 @@ Ext.define("JCertifBO.view.participant.Add", {
   					minLength: 8,
   					allowblank : false,
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Title',
+  					store: Ext.create('JCertifBO.store.Titles'),
+  					displayField: 'label',
+            valueField: 'label',
   					name : 'title',
   					itemId : 'title',
   					emptyText : 'title'
@@ -102,8 +106,11 @@ Ext.define("JCertifBO.view.participant.Add", {
   					itemId : 'biography',
   					emptyText : 'biography'
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Sessions',
+  					store: Ext.create('JCertifBO.store.Sessions'),
+  					displayField: 'title',
+            valueField: 'id',
   					name : 'sessions',
   					itemId : 'sessions',
   					emptyText : 'biography'

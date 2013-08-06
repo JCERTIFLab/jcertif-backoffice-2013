@@ -16,7 +16,9 @@ Ext.define("JCertifBO.view.room.Add", {
   		align : 'center',
   		pack : 'center'
   	},
-  
+  	
+  	store : 'Sites',
+  	
   	initComponent : function() {
   
   		this.items = [ {
@@ -30,8 +32,11 @@ Ext.define("JCertifBO.view.room.Add", {
   					emptyText : 'name',
   					allowblank : false,
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Site',
+  					store : this.store,
+  					displayField: 'name',
+            valueField: 'id',
   					name : 'site',
   					itemId : 'site',
   					emptyText : 'site',

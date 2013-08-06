@@ -8,6 +8,8 @@ Ext.define("JCertifBO.view.sponsor.Grid", {
     
     border: false,
     
+    store: 'SponsorLevels',
+    
     initComponent: function() {
         
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
@@ -37,7 +39,12 @@ Ext.define("JCertifBO.view.sponsor.Grid", {
                 text: 'Level',
                 dataIndex: 'level',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: this.store,
+        					displayField: 'label',
+                  valueField: 'label',
+                }
             }, {
                 text: 'Website',
                 dataIndex: 'website',

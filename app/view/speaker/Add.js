@@ -16,7 +16,9 @@ Ext.define("JCertifBO.view.speaker.Add", {
   		align : 'center',
   		pack : 'center'
   	},
-  
+  	
+  	store : 'Titles',
+  	
   	initComponent : function() {
         
   		this.items = [ {
@@ -24,6 +26,7 @@ Ext.define("JCertifBO.view.speaker.Add", {
   			border : 0,
   			items : [ {
   					xtype : 'textfield',
+  					vtype : 'email',
   					fieldLabel : 'Email',
   					name : 'email',
   					itemId : 'email',
@@ -38,8 +41,11 @@ Ext.define("JCertifBO.view.speaker.Add", {
   					minLength: 8,
   					allowblank : false,
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Title',
+  					store: this.store,
+  					displayField: 'label',
+            valueField: 'label',
   					name : 'title',
   					itemId : 'title',
   					emptyText : 'title'

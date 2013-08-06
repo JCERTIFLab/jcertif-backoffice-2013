@@ -1,7 +1,7 @@
 Ext.define('JCertifBO.controller.SessionController', {
     extend: 'Ext.app.Controller',
     
-    stores: ['AdminOptions'],
+    stores: ['AdminOptions', 'SessionStatuses', 'Categories', 'Speakers', 'Rooms'],
     models: ['AdminOption', 'Session'],
     
     views: [

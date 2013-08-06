@@ -1,7 +1,7 @@
 Ext.define('JCertifBO.controller.RoomController', {
     extend: 'Ext.app.Controller',
     
-    stores: ['AdminOptions'],
+    stores: ['AdminOptions', 'Sites'],
     models: ['AdminOption', 'Room'],
     
     views: [

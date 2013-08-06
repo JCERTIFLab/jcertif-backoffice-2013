@@ -16,14 +16,17 @@ Ext.define("JCertifBO.view.sponsor.Add", {
   		align : 'center',
   		pack : 'center'
   	},
-  
+  	
+  	store: 'SponsorLevels',
+  	
   	initComponent : function() {
-  
+
   		this.items = [ {
   			xtype : 'form',
   			border : 0,
   			items : [ {
   					xtype : 'textfield',
+  					vtype: 'email',
   					fieldLabel : 'Email',
   					name : 'email',
   					itemId : 'email',
@@ -37,8 +40,11 @@ Ext.define("JCertifBO.view.sponsor.Add", {
   					emptyText : 'name',
   					allowblank : false,
   				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Level',
+  					store: this.store,
+  					displayField: 'label',
+            valueField: 'label',
   					name : 'level',
   					itemId : 'level',
   					emptyText : 'level',

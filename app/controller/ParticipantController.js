@@ -1,7 +1,7 @@
 Ext.define('JCertifBO.controller.ParticipantController', {
     extend: 'Ext.app.Controller',
     
-    stores: ['AdminOptions'],
+    stores: ['AdminOptions', 'Titles', 'Sessions'],
     models: ['AdminOption', 'Participant'],
     
     views: [

@@ -8,6 +8,8 @@ Ext.define("JCertifBO.view.room.Grid", {
     
     border: false,
     
+    store : 'Sites',
+    
     initComponent: function() {
         
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
@@ -33,7 +35,12 @@ Ext.define("JCertifBO.view.room.Grid", {
                 text: 'Site',
                 dataIndex: 'site',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: this.store,
+        					displayField: 'name',
+                  valueField: 'id',
+                }
             }, {
                 text: 'Seats',
                 dataIndex: 'seats',

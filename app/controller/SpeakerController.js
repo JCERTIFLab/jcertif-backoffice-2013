@@ -1,7 +1,7 @@
 Ext.define('JCertifBO.controller.SpeakerController', {
     extend: 'Ext.app.Controller',
     
-    stores: ['AdminOptions'],
+    stores: ['AdminOptions', 'Titles'],
     models: ['AdminOption', 'Speaker'],
     
     views: [

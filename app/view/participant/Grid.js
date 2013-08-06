@@ -22,7 +22,10 @@ Ext.define("JCertifBO.view.participant.Grid", {
                 text: 'Email',
                 dataIndex: 'email',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'textfield',
+                  vtype: 'email'
+                }
             }, {
                 text: 'Password',
                 dataIndex: 'password',
@@ -33,7 +36,12 @@ Ext.define("JCertifBO.view.participant.Grid", {
                 text: 'Title',
                 dataIndex: 'title',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: Ext.create('JCertifBO.store.Titles'),
+        					displayField: 'label',
+                  valueField: 'label',
+                }
             }, {
                 text: 'Lastname',
                 dataIndex: 'lastname',
@@ -83,7 +91,12 @@ Ext.define("JCertifBO.view.participant.Grid", {
                 text: 'Sessions',
                 dataIndex: 'sessions',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: Ext.create('JCertifBO.store.Sessions'),
+        					displayField: 'title',
+                  valueField: 'id',
+                }
             }, {
                 text: 'version',
                 dataIndex: 'version',

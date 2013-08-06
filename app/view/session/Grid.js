@@ -43,7 +43,12 @@ Ext.define("JCertifBO.view.session.Grid", {
                 text: 'Status',
                 dataIndex: 'status',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: Ext.create('JCertifBO.store.SessionStatuses'),
+        					displayField: 'label',
+                  valueField: 'label'
+                }
             }, {
                 text: 'Keyword',
                 dataIndex: 'keyword',
@@ -53,7 +58,12 @@ Ext.define("JCertifBO.view.session.Grid", {
                 text: 'Category',
                 dataIndex: 'category',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: Ext.create('JCertifBO.store.Categories'),
+        					displayField: 'label',
+                  valueField: 'label'
+                }
             }, {
                 text: 'Start',
                 dataIndex: 'start',
@@ -79,12 +89,23 @@ Ext.define("JCertifBO.view.session.Grid", {
                 text: 'Speakers',
                 dataIndex: 'speakers',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: Ext.create('JCertifBO.store.Speakers'),
+        					tpl: '<tpl for="."><div class="x-boundlist-item">{firstname} {lastname}</div></tpl>',
+                  valueField: 'email',
+                  multiSelect: true
+                }
             }, {
                 text: 'Room',
                 dataIndex: 'room',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype: 'combo',
+                  store: Ext.create('JCertifBO.store.Rooms'),
+        					displayField: 'name',
+                  valueField: 'id'
+                }
             }, {
                 text: 'version',
                 dataIndex: 'version',
