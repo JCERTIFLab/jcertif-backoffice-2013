@@ -78,12 +78,14 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.FieldReplicator": [],
   "JCertifBO.model.Room": [],
   "JCertifBO.model.Category": [],
+  "JCertifBO.store.Countries": [],
   "Ext.ux.grid.filter.ListFilter": [],
   "JCertifBO.view.site.Add": [],
   "JCertifBO.controller.RoomController": [],
   "JCertifBO.view.participant.Add": [],
   "JCertifBO.model.SponsorLevel": [],
   "Ext.ux.GMapPanel": [],
+  "JCertifBO.store.Cities": [],
   "Ext.ux.GroupTabPanel": [],
   "Ext.ux.DataView.LabelEditor": [],
   "Ext.ux.grid.filter.StringFilter": [],
@@ -241,6 +243,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.FieldReplicator": [],
   "JCertifBO.model.Room": [],
   "JCertifBO.model.Category": [],
+  "JCertifBO.store.Countries": [],
   "Ext.ux.grid.filter.ListFilter": [
     "gridfilter.list"
   ],
@@ -255,6 +258,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.GMapPanel": [
     "widget.gmappanel"
   ],
+  "JCertifBO.store.Cities": [],
   "Ext.ux.GroupTabPanel": [
     "widget.grouptabpanel"
   ],
