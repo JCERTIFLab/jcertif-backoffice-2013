@@ -17,8 +17,6 @@ Ext.define("JCertifBO.view.sponsor.Add", {
   		pack : 'center'
   	},
   	
-  	store: 'SponsorLevels',
-  	
   	initComponent : function() {
 
   		this.items = [ {
@@ -42,7 +40,7 @@ Ext.define("JCertifBO.view.sponsor.Add", {
   				},{
   					xtype : 'combo',
   					fieldLabel : 'Level',
-  					store: this.store,
+  					store: Ext.create('JCertifBO.store.SponsorLevels'),
   					displayField: 'label',
             valueField: 'label',
   					name : 'level',
@@ -64,19 +62,41 @@ Ext.define("JCertifBO.view.sponsor.Add", {
   					emptyText : 'logo',
   					allowblank : false,
   				},{
-  					xtype : 'textfield',
-  					fieldLabel : 'City',
-  					name : 'city',
-  					itemId : 'city',
-  					emptyText : 'city',
-  					allowblank : false,
-  				},{
-  					xtype : 'textfield',
+  					xtype : 'combo',
   					fieldLabel : 'Country',
+  					store: Ext.create('JCertifBO.store.Countries'),
+  					queryMode: 'local',
+  					triggerAction: 'all',
+  					displayField: 'country',
+            valueField: 'cid',
   					name : 'country',
   					itemId : 'country',
   					emptyText : 'country',
   					allowblank : false,
+  					listeners:{
+              select:function(combo, value) {
+                var comboCity = Ext.getCmp('add-combo-city'); 
+                comboCity.enable();       
+                comboCity.clearValue();
+                comboCity.store.clearFilter(true);
+                comboCity.store.filter('cid',  combo.getValue());
+              }
+            }
+  				},{
+  					xtype : 'combo',
+  					fieldLabel : 'City',
+  					id:'add-combo-city',
+  					store: Ext.create('JCertifBO.store.Cities'),
+  					queryMode: 'local',
+  					triggerAction: 'all',
+  					disabled: true,
+  					displayField: 'city',
+            valueField: 'city',
+            lastQuery: '',
+  					name : 'city',
+  					itemId : 'city',
+  					emptyText : 'city',
+  					allowblank : false
   				},{
   					xtype : 'textfield',
   					fieldLabel : 'Phone',

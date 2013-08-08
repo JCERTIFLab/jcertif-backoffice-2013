@@ -1,16 +1,6 @@
 Ext.define('JCertifBO.controller.HomeController', {
 	extend : 'Ext.app.Controller',
-	views : [ 'Home', ],
+	views : ['Home'],
 	models: ['User'],
-  stores: ['Users'],
-    
-  listeners : {
-      'loggedin' : function() {
-              html : "Hello User!"
-       }
-  },
-  
-  init : function() {
-       var allUsers = this.getUsersStore();
-	}
+  stores: ['Users']
 });

@@ -5,7 +5,6 @@
  * metadata-driven class system features 
  */
 Ext.Loader.addClassPathMappings({
-  "JCertifBO.store.SessionStatuses": "../../app/store/SessionSatuses.js",
   "JCertifBO": "../../app",
   "Ext": "../../ext/src",
   "Ext.rtl.EventObjectImpl": "../../ext/src/rtl/EventObject.js",
@@ -17,6 +16,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.grid.TransformGrid": [],
   "Ext.ux.ajax.DataSimlet": [],
   "JCertifBO.view.AdminOptionsList": [],
+  "JCertifBO.store.Titles": [],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [],
   "JCertifBO.controller.SponsorController": [],
@@ -36,6 +36,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.CheckColumn": [],
   "Ext.ux.PreviewPlugin": [],
   "JCertifBO.controller.AdminOptionsController": [],
+  "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "Ext.ux.event.RecorderManager": [],
   "JCertifBO.store.SponsorLevels": [],
@@ -133,6 +134,7 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.AdminOptionsList": [
     "widget.adminoptionslist"
   ],
+  "JCertifBO.store.Titles": [],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [
     "simlet.xml"
@@ -165,6 +167,7 @@ Ext.ClassManager.addNameAliasMappings({
     "plugin.preview"
   ],
   "JCertifBO.controller.AdminOptionsController": [],
+  "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "Ext.ux.event.RecorderManager": [
     "widget.eventrecordermanager"

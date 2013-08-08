@@ -8,8 +8,6 @@ Ext.define("JCertifBO.view.sponsor.Grid", {
     
     border: false,
     
-    store: 'SponsorLevels',
-    
     initComponent: function() {
         
         var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
@@ -41,7 +39,7 @@ Ext.define("JCertifBO.view.sponsor.Grid", {
                 flex: 1,
                 editor: {
                   xtype: 'combo',
-                  store: this.store,
+                  store: Ext.create('JCertifBO.store.SponsorLevels'),
         					displayField: 'label',
                   valueField: 'label',
                 }
@@ -51,15 +49,41 @@ Ext.define("JCertifBO.view.sponsor.Grid", {
                 flex: 1,
                 editor: 'textfield'
             }, {
-                text: 'City',
-                dataIndex: 'city',
-                flex: 1,
-                editor: 'textfield'
-            }, {
                 text: 'Country',
                 dataIndex: 'country',
                 flex: 1,
-                editor: 'textfield'
+                editor: {
+                  xtype : 'combo',
+                  store: Ext.create('JCertifBO.store.Countries'),
+        					queryMode: 'local',
+        					triggerAction: 'all',
+        					displayField: 'country',
+                  valueField: 'cid',
+                  listeners:{
+                    select:function(combo, value) {
+                      var comboCity = Ext.getCmp('grid-combo-city'); 
+                      comboCity.enable();       
+                      comboCity.clearValue();
+                      comboCity.store.clearFilter(true);
+                      comboCity.store.filter('cid',  combo.getValue());
+                    }
+                  }
+                }
+            }, {
+                text: 'City',
+                dataIndex: 'city',
+                flex: 1,
+                editor: {
+                  xtype : 'combo',
+                  id:'grid-combo-city',
+        					store: Ext.create('JCertifBO.store.Cities'),
+        					queryMode: 'local',
+        					triggerAction: 'all',
+        					disabled: true,
+        					displayField: 'city',
+                  valueField: 'city',
+                  lastQuery: ''
+                }
             }, {
                 text: 'Phone',
                 dataIndex: 'phone',
