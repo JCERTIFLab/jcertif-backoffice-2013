@@ -1,4 +1,31 @@
-@import url('../../ext/resources/ext-theme-neptune/ext-theme-neptune-all.css');
+@import url('ext-theme-neptune/ext-theme-neptune-all.css');
+
+.x-mask.splashscreen {
+    background-color: white;
+    opacity: 1;
+}
+
+.x-mask-msg.splashscreen,
+.x-mask-msg.splashscreen div {
+    font-size: 16px;
+    padding: 30px 5px 5px 5px;
+    border: none;
+    background-color: transparent;
+    background-position: top center;
+}
+
+.x-message-box .x-window-body .x-box-inner {
+    min-height: 110px !important;
+}
+
+.x-splash-icon {
+    /* Important required due to the loading symbols CSS selector */
+    background-image: url('../images/jcertiflab_logo.png') !important;
+    margin-top: -30px;
+    margin-bottom: 10px;
+    width : 170px;
+  	height : 70px;
+}
 
 .app-header {
     background-color: #323232;

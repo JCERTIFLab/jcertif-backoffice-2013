@@ -12,7 +12,11 @@ Ext.define("JCertifBO.view.referentiel.Grid", {
         
         Ext.apply(this, {
             store: this.store,
-
+            
+            viewConfig: {
+              loadMask: false
+            },
+            
             columns: [{
                 text: 'Label',
                 dataIndex: 'label',

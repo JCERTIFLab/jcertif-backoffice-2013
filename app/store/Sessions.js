@@ -1,7 +1,6 @@
 Ext.define('JCertifBO.store.Sessions', {
 	extend : 'Ext.data.Store',
 	model : 'JCertifBO.model.Session',
-	autoLoad : true,
 	proxy: {
       type: 'ajax',
       api: {

@@ -1,7 +1,6 @@
 Ext.define('JCertifBO.store.SponsorLevels', {
 	extend : 'Ext.data.Store',
 	model : 'JCertifBO.model.SponsorLevel',
-	autoLoad : true,
 	proxy: {
       type: 'ajax',
       api: {

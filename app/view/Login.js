@@ -18,6 +18,10 @@ Ext.define('JCertifBO.view.Login', {
 		pack : 'center'
 	},
 
+  requires : [
+      'Ext.form.FieldSet'
+  ],
+  
 	initComponent : function() {
 
 		this.items = [ {

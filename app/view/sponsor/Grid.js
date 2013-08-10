@@ -4,7 +4,13 @@ Ext.define("JCertifBO.view.sponsor.Grid", {
     
     cls: 'admin-options-grid',
 
-    requires: ['Ext.grid.plugin.RowEditing', 'Ext.toolbar.Toolbar'],
+    requires: [
+        'Ext.grid.plugin.RowEditing', 
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.ComboBox',
+        'JCertifBO.store.Countries',
+        'JCertifBO.store.Cities',
+    ],
     
     border: false,
     

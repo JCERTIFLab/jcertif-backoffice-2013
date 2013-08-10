@@ -69,4 +69,5 @@ Ext.define('JCertifBO.controller.LoginController', {
     Ext.state.Manager.clear();
     window.location.reload();
 	}
+	
 });

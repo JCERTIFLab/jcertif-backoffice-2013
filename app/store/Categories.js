@@ -1,7 +1,6 @@
 Ext.define('JCertifBO.store.Categories', {
 	extend : 'Ext.data.Store',
 	model : 'JCertifBO.model.Category',
-	autoLoad : true,
 	proxy: {
       type: 'ajax',
       api: {

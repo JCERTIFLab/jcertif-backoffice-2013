@@ -4,7 +4,11 @@ Ext.define("JCertifBO.view.session.Grid", {
     
     cls: 'admin-options-grid',
 
-    requires: ['Ext.grid.plugin.RowEditing', 'Ext.toolbar.Toolbar'],
+    requires: [
+        'Ext.grid.plugin.RowEditing', 
+        'Ext.toolbar.Toolbar',
+        'Ext.form.field.Date'
+    ],
     
     border: false,
     

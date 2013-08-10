@@ -1,7 +1,6 @@
 Ext.define('JCertifBO.store.Rooms', {
 	extend : 'Ext.data.Store',
 	model : 'JCertifBO.model.Room',
-	autoLoad : true,
 	proxy: {
       type: 'ajax',
       api: {

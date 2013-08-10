@@ -6,20 +6,23 @@
  */
 Ext.Loader.addClassPathMappings({
   "JCertifBO": "../../app",
+  " Ext.Msg": "../../ext/src/window/MessageBox.js",
+  "ExtThemeNeptune": "../../ext/packages/ext-theme-neptune/overrides",
   "Ext": "../../ext/src",
-  "Ext.rtl.EventObjectImpl": "../../ext/src/rtl/EventObject.js",
-  "Ext.ux.GroupTreeChunker": "../../ext/src/ux/GroupTabPanel.js"
+  "Ext.rtl.EventObjectImpl": "../../ext/src/rtl/EventObject.js"
 });
 Ext.ClassManager.addNameAlternateMappings({
+  "ExtThemeNeptune.container.ButtonGroup": [],
   "JCertifBO.model.SessionStatus": [],
   "JCertifBO.view.room.Grid": [],
-  "Ext.ux.grid.TransformGrid": [],
   "Ext.ux.ajax.DataSimlet": [],
+  "Ext.ux.grid.TransformGrid": [],
   "JCertifBO.view.AdminOptionsList": [],
   "JCertifBO.store.Titles": [],
-  "Ext.ux.event.Driver": [],
-  "Ext.ux.ajax.XmlSimlet": [],
+  "ExtThemeNeptune.toolbar.Paging": [],
   "JCertifBO.controller.SponsorController": [],
+  "Ext.ux.ajax.XmlSimlet": [],
+  "Ext.ux.event.Driver": [],
   "JCertifBO.controller.SpeakerController": [],
   "JCertifBO.view.Viewer": [],
   "Ext.ux.DataView.DragSelector": [],
@@ -32,19 +35,21 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "JCertifBO.view.speaker.Grid": [],
   "JCertifBO.view.Viewport": [],
+  "ExtThemeNeptune.grid.column.RowNumberer": [],
   "JCertifBO.view.referentiel.Add": [],
-  "Ext.ux.CheckColumn": [],
   "Ext.ux.PreviewPlugin": [],
   "JCertifBO.controller.AdminOptionsController": [],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
-  "Ext.ux.event.RecorderManager": [],
   "JCertifBO.store.SponsorLevels": [],
+  "Ext.ux.event.RecorderManager": [],
   "Ext.ux.ProgressBarPager": [],
+  "Ext.ux.CellDragDrop": [],
   "Ext.ux.ajax.Simlet": [],
   "Ext.ux.SlidingPager": [],
   "Ext.ux.TabReorderer": [],
   "Ext.ux.grid.filter.NumericFilter": [],
+  "ExtThemeNeptune.panel.Table": [],
   "Ext.ux.event.Recorder": [],
   "JCertifBO.view.session.Add": [],
   "JCertifBO.model.Site": [],
@@ -52,26 +57,32 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.model.Session": [],
   "Ext.ux.grid.filter.BooleanFilter": [],
   "Ext.ux.TabScrollerMenu": [],
+  "ExtThemeNeptune.menu.Separator": [],
   "JCertifBO.model.Title": [],
   "Ext.ux.IFrame": [],
   "JCertifBO.model.Speaker": [],
   "JCertifBO.view.Login": [],
   "Ext.ux.form.SearchField": [],
+  "Ext.ux.dd.CellFieldDropZone": [],
   "JCertifBO.view.AppHeader": [],
   "Ext.ux.LiveSearchGridPanel": [],
   "Ext.ux.grid.filter.DateFilter": [],
-  "Ext.ux.TreePicker": [],
   "JCertifBO.view.sponsor.Add": [],
+  "Ext.ux.TreePicker": [],
   "JCertifBO.view.participant.Grid": [],
   "JCertifBO.store.Categories": [],
+  "ExtThemeNeptune.grid.RowEditor": [],
+  "ExtThemeNeptune.picker.Month": [],
   "Ext.ux.data.PagingMemoryProxy": [
     "Ext.data.PagingMemoryProxy"
   ],
   "JCertifBO.controller.LoginController": [],
-  "Ext.ux.BoxReorderer": [],
   "JCertifBO.store.SessionStatuses": [],
+  "ExtThemeNeptune.menu.Menu": [],
+  "Ext.ux.BoxReorderer": [],
   "JCertifBO.controller.ParticipantController": [],
   "Ext.ux.grid.filter.Filter": [],
+  "Ext.ux.GroupTabRenderer": [],
   "JCertifBO.store.Speakers": [],
   "JCertifBO.view.sponsor.Grid": [],
   "JCertifBO.view.speaker.Add": [],
@@ -79,17 +90,20 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.model.Room": [],
   "JCertifBO.model.Category": [],
   "JCertifBO.store.Countries": [],
+  "ExtThemeNeptune.panel.Panel": [],
   "Ext.ux.grid.filter.ListFilter": [],
   "JCertifBO.view.site.Add": [],
   "JCertifBO.controller.RoomController": [],
   "JCertifBO.view.participant.Add": [],
+  "Ext.ux.dd.PanelFieldDragZone": [],
+  "ExtThemeNeptune.toolbar.Toolbar": [],
   "JCertifBO.model.SponsorLevel": [],
+  "ExtThemeNeptune.tab.Tab": [],
   "Ext.ux.GMapPanel": [],
   "JCertifBO.store.Cities": [],
   "Ext.ux.GroupTabPanel": [],
   "Ext.ux.DataView.LabelEditor": [],
   "Ext.ux.grid.filter.StringFilter": [],
-  "Ext.ux.GroupTreeChunker": [],
   "Ext.ux.statusbar.ValidationStatus": [],
   "Ext.ux.layout.Center": [],
   "JCertifBO.store.Sites": [],
@@ -97,51 +111,60 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.model.Referentiel": [],
   "Ext.ux.DataView.Animated": [],
   "JCertifBO.controller.HomeController": [],
+  "ExtThemeNeptune.resizer.Splitter": [],
   "JCertifBO.view.room.Add": [],
   "Ext.ux.statusbar.StatusBar": [
     "Ext.ux.StatusBar"
   ],
   "JCertifBO.model.AdminOption": [],
+  "ExtThemeNeptune.layout.component.Dock": [],
   "Ext.ux.grid.menu.RangeMenu": [],
   "Ext.ux.RowExpander": [],
   "Ext.ux.event.Player": [],
   "JCertifBO.model.Participant": [],
   "JCertifBO.store.Users": [],
+  "ExtThemeNeptune.panel.Tool": [],
   "JCertifBO.view.option.Show": [],
   "JCertifBO.view.Home": [],
   "Ext.ux.ToolbarDroppable": [],
+  "JCertifBO.store.Rooms": [],
   "Ext.ux.event.Maker": [],
   "JCertifBO.view.referentiel.Grid": [],
-  "JCertifBO.store.Rooms": [],
   "JCertifBO.view.session.Grid": [],
   "Ext.ux.DataView.Draggable": [],
   "Ext.ux.TabCloseMenu": [],
   "JCertifBO.controller.SessionController": [],
   "JCertifBO.view.site.Grid": [],
+  "Ext.ux.DataTip": [],
+  "Ext.ux.grid.filter.DateTimeFilter": [],
   "Ext.ux.form.ItemSelector": [
     "Ext.ux.ItemSelector"
   ],
   "JCertifBO.model.Sponsor": [],
   "Ext.ux.ajax.JsonSimlet": [],
   "Ext.ux.Spotlight": [],
-  "Ext.ux.grid.FiltersFeature": []
+  "ExtThemeNeptune.form.field.HtmlEditor": [],
+  "Ext.ux.grid.FiltersFeature": [],
+  "ExtThemeNeptune.Component": []
 });
 Ext.ClassManager.addNameAliasMappings({
+  "ExtThemeNeptune.container.ButtonGroup": [],
   "JCertifBO.model.SessionStatus": [],
   "JCertifBO.view.room.Grid": [
     "widget.roomgrid"
   ],
-  "Ext.ux.grid.TransformGrid": [],
   "Ext.ux.ajax.DataSimlet": [],
+  "Ext.ux.grid.TransformGrid": [],
   "JCertifBO.view.AdminOptionsList": [
     "widget.adminoptionslist"
   ],
   "JCertifBO.store.Titles": [],
-  "Ext.ux.event.Driver": [],
+  "ExtThemeNeptune.toolbar.Paging": [],
+  "JCertifBO.controller.SponsorController": [],
   "Ext.ux.ajax.XmlSimlet": [
     "simlet.xml"
   ],
-  "JCertifBO.controller.SponsorController": [],
+  "Ext.ux.event.Driver": [],
   "JCertifBO.controller.SpeakerController": [],
   "JCertifBO.view.Viewer": [
     "widget.viewer"
@@ -159,11 +182,9 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.speakergrid"
   ],
   "JCertifBO.view.Viewport": [],
+  "ExtThemeNeptune.grid.column.RowNumberer": [],
   "JCertifBO.view.referentiel.Add": [
     "widget.referentieladd"
-  ],
-  "Ext.ux.CheckColumn": [
-    "widget.checkcolumn"
   ],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
@@ -171,11 +192,14 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.controller.AdminOptionsController": [],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
+  "JCertifBO.store.SponsorLevels": [],
   "Ext.ux.event.RecorderManager": [
     "widget.eventrecordermanager"
   ],
-  "JCertifBO.store.SponsorLevels": [],
   "Ext.ux.ProgressBarPager": [],
+  "Ext.ux.CellDragDrop": [
+    "plugin.celldragdrop"
+  ],
   "Ext.ux.ajax.Simlet": [
     "simlet.basic"
   ],
@@ -184,6 +208,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.filter.NumericFilter": [
     "gridfilter.numeric"
   ],
+  "ExtThemeNeptune.panel.Table": [],
   "Ext.ux.event.Recorder": [],
   "JCertifBO.view.session.Add": [
     "widget.sessionadd"
@@ -197,6 +222,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.TabScrollerMenu": [
     "plugin.tabscrollermenu"
   ],
+  "ExtThemeNeptune.menu.Separator": [],
   "JCertifBO.model.Title": [],
   "Ext.ux.IFrame": [
     "widget.uxiframe"
@@ -208,6 +234,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.form.SearchField": [
     "widget.searchfield"
   ],
+  "Ext.ux.dd.CellFieldDropZone": [],
   "JCertifBO.view.AppHeader": [
     "widget.appheader"
   ],
@@ -215,24 +242,30 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.filter.DateFilter": [
     "gridfilter.date"
   ],
-  "Ext.ux.TreePicker": [
-    "widget.treepicker"
-  ],
   "JCertifBO.view.sponsor.Add": [
     "widget.sponsoradd"
+  ],
+  "Ext.ux.TreePicker": [
+    "widget.treepicker"
   ],
   "JCertifBO.view.participant.Grid": [
     "widget.participantgrid"
   ],
   "JCertifBO.store.Categories": [],
+  "ExtThemeNeptune.grid.RowEditor": [],
+  "ExtThemeNeptune.picker.Month": [],
   "Ext.ux.data.PagingMemoryProxy": [
     "proxy.pagingmemory"
   ],
   "JCertifBO.controller.LoginController": [],
-  "Ext.ux.BoxReorderer": [],
   "JCertifBO.store.SessionStatuses": [],
+  "ExtThemeNeptune.menu.Menu": [],
+  "Ext.ux.BoxReorderer": [],
   "JCertifBO.controller.ParticipantController": [],
   "Ext.ux.grid.filter.Filter": [],
+  "Ext.ux.GroupTabRenderer": [
+    "plugin.grouptabrenderer"
+  ],
   "JCertifBO.store.Speakers": [],
   "JCertifBO.view.sponsor.Grid": [
     "widget.sponsorgrid"
@@ -244,6 +277,7 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.model.Room": [],
   "JCertifBO.model.Category": [],
   "JCertifBO.store.Countries": [],
+  "ExtThemeNeptune.panel.Panel": [],
   "Ext.ux.grid.filter.ListFilter": [
     "gridfilter.list"
   ],
@@ -254,7 +288,10 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.participant.Add": [
     "widget.participantadd"
   ],
+  "Ext.ux.dd.PanelFieldDragZone": [],
+  "ExtThemeNeptune.toolbar.Toolbar": [],
   "JCertifBO.model.SponsorLevel": [],
+  "ExtThemeNeptune.tab.Tab": [],
   "Ext.ux.GMapPanel": [
     "widget.gmappanel"
   ],
@@ -266,7 +303,6 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.filter.StringFilter": [
     "gridfilter.string"
   ],
-  "Ext.ux.GroupTreeChunker": [],
   "Ext.ux.statusbar.ValidationStatus": [],
   "Ext.ux.layout.Center": [
     "layout.ux.center"
@@ -276,6 +312,7 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.model.Referentiel": [],
   "Ext.ux.DataView.Animated": [],
   "JCertifBO.controller.HomeController": [],
+  "ExtThemeNeptune.resizer.Splitter": [],
   "JCertifBO.view.room.Add": [
     "widget.roomadd"
   ],
@@ -283,23 +320,23 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.statusbar"
   ],
   "JCertifBO.model.AdminOption": [],
+  "ExtThemeNeptune.layout.component.Dock": [],
   "Ext.ux.grid.menu.RangeMenu": [],
-  "Ext.ux.RowExpander": [
-    "plugin.rowexpander"
-  ],
+  "Ext.ux.RowExpander": [],
   "Ext.ux.event.Player": [],
   "JCertifBO.model.Participant": [],
   "JCertifBO.store.Users": [],
+  "ExtThemeNeptune.panel.Tool": [],
   "JCertifBO.view.option.Show": [
     "widget.optionshow"
   ],
   "JCertifBO.view.Home": [],
   "Ext.ux.ToolbarDroppable": [],
+  "JCertifBO.store.Rooms": [],
   "Ext.ux.event.Maker": [],
   "JCertifBO.view.referentiel.Grid": [
     "widget.referentielgrid"
   ],
-  "JCertifBO.store.Rooms": [],
   "JCertifBO.view.session.Grid": [
     "widget.sessiongrid"
   ],
@@ -311,6 +348,12 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.site.Grid": [
     "widget.sitegrid"
   ],
+  "Ext.ux.DataTip": [
+    "plugin.datatip"
+  ],
+  "Ext.ux.grid.filter.DateTimeFilter": [
+    "gridfilter.datetime"
+  ],
   "Ext.ux.form.ItemSelector": [
     "widget.itemselector",
     "widget.itemselectorfield"
@@ -320,7 +363,25 @@ Ext.ClassManager.addNameAliasMappings({
     "simlet.json"
   ],
   "Ext.ux.Spotlight": [],
+  "ExtThemeNeptune.form.field.HtmlEditor": [],
   "Ext.ux.grid.FiltersFeature": [
     "feature.filters"
-  ]
+  ],
+  "ExtThemeNeptune.Component": []
 });
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/Component.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Panel.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/layout/component/Dock.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/toolbar/Toolbar.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/container/ButtonGroup.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/toolbar/Paging.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/picker/Month.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/form/field/HtmlEditor.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Table.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/grid/RowEditor.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/grid/column/RowNumberer.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/resizer/Splitter.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/menu/Menu.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/menu/Separator.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Tool.js");
+Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/tab/Tab.js");

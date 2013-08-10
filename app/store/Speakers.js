@@ -1,7 +1,6 @@
 Ext.define('JCertifBO.store.Speakers', {
 	extend : 'Ext.data.Store',
 	model : 'JCertifBO.model.Speaker',
-	autoLoad : true,
 	proxy: {
       type: 'ajax',
       api: {

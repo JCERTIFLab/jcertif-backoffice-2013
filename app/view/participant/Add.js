@@ -135,7 +135,7 @@ Ext.define("JCertifBO.view.participant.Add", {
             valueField: 'id',
   					name : 'sessions',
   					itemId : 'sessions',
-  					emptyText : 'biography'
+  					emptyText : 'sessions'
   				},{
   					xtype : 'textfield',
   					name : 'provider',

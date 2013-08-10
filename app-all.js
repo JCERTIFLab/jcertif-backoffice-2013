@@ -1,0 +1,1 @@
+BACKEND_URL="http://jcertif-backend.msomda.cloudbees.net";var splashscreen;Ext.application({name:"JCertifBO",appFolder:"app",controllers:["LoginController","HomeController","AdminOptionsController","ReferentielController","SponsorController","SiteController","RoomController","SessionController","SpeakerController","ParticipantController"],autoCreateViewport:true});
