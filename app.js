@@ -1,4 +1,4 @@
-BACKEND_URL='http://jcertif-backend.msomda.cloudbees.net';
+BACKEND_URL='http://www.jcertif.backend.vm-host.net';
 var splashscreen;
 
 Ext.application({
