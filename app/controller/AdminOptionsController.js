@@ -60,7 +60,7 @@ Ext.define('JCertifBO.controller.AdminOptionsController', {
             model: option.get('model'),
             proxy: {
                 type: 'ajax',
-                url : BACKEND_URL + option.get('loadUrl'),
+                url : BACKEND_URL + option.get('loadUrl') + '?access_token=' + Ext.util.Cookies.get('access_token') + '&provider=' + Ext.util.Cookies.get('provider'),
                 reader: {
                     type: 'json'
                 }
