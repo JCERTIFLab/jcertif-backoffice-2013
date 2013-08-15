@@ -30,6 +30,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.grid.menu.ListMenu": [],
   "JCertifBO.controller.ReferentielController": [],
   "JCertifBO.controller.SiteController": [],
+  "JCertifBO.model.GoogleToken": [],
   "Ext.ux.form.MultiSelect": [
     "Ext.ux.Multiselect"
   ],
@@ -38,8 +39,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.view.Viewport": [],
   "ExtThemeNeptune.grid.column.RowNumberer": [],
   "JCertifBO.view.referentiel.Add": [],
-  "JCertifBO.controller.AdminOptionsController": [],
   "Ext.ux.PreviewPlugin": [],
+  "JCertifBO.controller.AdminOptionsController": [],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "JCertifBO.store.SponsorLevels": [],
@@ -176,6 +177,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.menu.ListMenu": [],
   "JCertifBO.controller.ReferentielController": [],
   "JCertifBO.controller.SiteController": [],
+  "JCertifBO.model.GoogleToken": [],
   "Ext.ux.form.MultiSelect": [
     "widget.multiselect",
     "widget.multiselectfield"
@@ -189,10 +191,10 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.referentiel.Add": [
     "widget.referentieladd"
   ],
-  "JCertifBO.controller.AdminOptionsController": [],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
   ],
+  "JCertifBO.controller.AdminOptionsController": [],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "JCertifBO.store.SponsorLevels": [],

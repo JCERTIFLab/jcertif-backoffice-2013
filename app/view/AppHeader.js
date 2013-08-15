@@ -9,7 +9,7 @@ Ext.define("JCertifBO.view.AppHeader", {
         autoEl: {
             tag: 'h1'
         },
-        html: 'JCertif BackOffice',
+        html: 'JCertif BackOffice v' + VERSION,
         flex: 1
     },{
         xtype: 'button',
