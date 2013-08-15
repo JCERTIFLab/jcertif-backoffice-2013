@@ -759,6 +759,30 @@
         "name": "option.Show",
         "viewFileName": "option/Show"
       }
+    },
+    "app/model/AuthProvider.js": {
+      "source": "{modelFileName}.js.tpl.merge",
+      "version": "31d5356142a167c72422f7902f19df3c583f3249",
+      "parameters": {
+        "appName": "JCertifBO",
+        "modelNamespace": "JCertifBO.model",
+        "baseClass": "Ext.data.Model",
+        "modelFileName": "AuthProvider",
+        "name": "AuthProvider",
+        "fields": "authorizationUrl:auto:null,accessTokenUrl:auto:null,requestTokenUrl:auto:null,clientId:auto:null,clientSecret:auto:null,scope:auto:null"
+      }
+    },
+    "app/model/GoogleToken.js": {
+      "source": "{modelFileName}.js.tpl.merge",
+      "version": "31d5356142a167c72422f7902f19df3c583f3249",
+      "parameters": {
+        "appName": "JCertifBO",
+        "modelNamespace": "JCertifBO.model",
+        "baseClass": "Ext.data.Model",
+        "modelFileName": "GoogleToken",
+        "name": "GoogleToken",
+        "fields": "id:auto:null,email:auto:null,verified_email:auto:null,name:auto:null,given_name:auto:null,family_name:auto:null,link:auto:null,picture:auto:null,gender:auto:null,birthday:auto:null,locale:auto:null"
+      }
     }
   }
 }

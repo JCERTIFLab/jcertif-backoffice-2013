@@ -1,7 +1,8 @@
 Ext.define('JCertifBO.controller.LoginController', {
 	extend : 'Ext.app.Controller',
 	views : ['Login'],
-	model : 'User',
+	stores: ['AuthProviders'],
+	model : 'GoogleToken',
   requires : [
       'Ext.util.Cookies'
   ],
@@ -13,13 +14,19 @@ Ext.define('JCertifBO.controller.LoginController', {
 			'login button[action=reset]' : {
 				click : this.reset
 			},
+			'login button[action=googleplus-login]' : {
+				click : this.googleConnect
+			},
+			'login button[action=github-login]' : {
+				click : this.githubConnect
+			},
 			'appheader button[action=logout]' : {
 				click : this.logout
 			}
 		});
 	},
 	
-	onLaunch: function(){
+	onLaunch : function(){
 	    //check if usre is already authenticated
       var email = Ext.util.Cookies.get('user');
       if(email != undefined){
@@ -58,12 +65,153 @@ Ext.define('JCertifBO.controller.LoginController', {
     }
 	},
 	
+	googleConnect : function(btn) {
+	   var loginWin = btn.up('window'), baseUrl = this.getAuthProvidersStore().findRecord('name', 'google').get('authorizationUrl'),
+        clientId = this.getAuthProvidersStore().findRecord('name', 'google').get('clientId'),
+        scope = this.getAuthProvidersStore().findRecord('name', 'google').get('scope');
+		
+		_url = baseUrl + '?client_id='+ clientId +'&response_type=token&scope='+scope+'&redirect_uri='+BACKOFFICE_URL;
+		var socialWin = window.open(_url, "gplusLoginWindow", 'width=800, height=600'); 
+    var acToken;
+    var controller = this;
+    var pollTimer = window.setInterval(function() { 
+        try {
+            if (socialWin.document.URL.indexOf(BACKOFFICE_URL) != -1) {
+                window.clearInterval(pollTimer);
+                var params = {}, queryString = socialWin.location.hash.substring(1),
+                regex = /([^&=]+)=([^&]*)/g, m;
+                while (m = regex.exec(queryString)) {
+                  params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+                }
+                acToken =  params['access_token']; 
+                controller.validateGoogleToken(acToken);                                  
+                socialWin.close();
+                loginWin.close(); 
+                Ext.create('JCertifBO.view.Home'); 
+            }
+        } catch(e) {
+          console.log(e)
+        }
+    }, 500); 
+     
+	},
+	
+	githubConnect : function(btn) {
+	   var loginWin = btn.up('window'), baseUrl = this.getAuthProvidersStore().findRecord('name', 'github').get('authorizationUrl'),
+        clientId = this.getAuthProvidersStore().findRecord('name', 'github').get('clientId'),
+        clientSecret = this.getAuthProvidersStore().findRecord('name', 'github').get('clientSecret'),
+        scope = this.getAuthProvidersStore().findRecord('name', 'github').get('scope');
+		
+		_url = baseUrl + '?client_id='+ clientId + '&scope='+scope+'&redirect_uri='+BACKOFFICE_URL
+		var socialWin = window.open(_url, "githubLoginWindow", 'width=800, height=600'); 
+    var code;
+    var controller = this;
+    var pollTimer = window.setInterval(function() { 
+        try {
+            if (socialWin.document.URL.indexOf(BACKOFFICE_URL) != -1) {
+                window.clearInterval(pollTimer);
+                var params = {}, queryString = socialWin.document.URL.substring(socialWin.document.URL.indexOf('?')+1),
+                regex = /([^&=]+)=([^&]*)/g, m;
+                while (m = regex.exec(queryString)) {
+                  params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+                }
+                code =  params['code']; 
+                controller.validateGithubToken(clientId, clientSecret, code);                                  
+                socialWin.close();
+                loginWin.close(); 
+                Ext.create('JCertifBO.view.Home'); 
+            }
+        } catch(e) {
+          console.log(e)
+        }
+    }, 500); 
+     
+	},
+  
+  validateGoogleToken : function(accessToken){
+    Ext.Ajax.useDefaultXhrHeader = false;
+    Ext.Ajax.cors = true;
+    Ext.Ajax.request({
+			url : 'https://www.googleapis.com/oauth2/v1/userinfo?access_token='+accessToken,
+			loadMask: false,
+			success : function(response) {				  
+			  var email = Ext.decode(response.responseText).email;
+	      var name = Ext.decode(response.responseText).name;
+	      var picture = Ext.decode(response.responseText).picture;
+	      Ext.util.Cookies.set('user',email);
+        Ext.util.Cookies.set('user_name',name);
+        Ext.util.Cookies.set('picture',picture);
+        Ext.util.Cookies.set('access_token',accessToken);
+        Ext.util.Cookies.set('provider', 'google');
+			},
+			failure : function(response) {
+				Ext.MessageBox.show({
+					title : 'Login Failed',
+					msg : response.responseText,
+					buttons : Ext.MessageBox.OK,
+					icon : Ext.MessageBox.ERROR
+				});
+			}
+		});
+  },  
+  
+  validateGithubToken : function(clientId, clientSecret, code){
+    Ext.Ajax.useDefaultXhrHeader = false;
+    Ext.Ajax.cors = true;
+    var accessToken;
+    Ext.Ajax.request({
+			url : 'https://github.com/login/oauth/access_token',
+			params: {
+			  client_id: clientId,
+			  client_secret: clientSecret,
+			  code: code
+      },
+			loadMask: false,
+			success : function(response) {				  
+			  accessToken = Ext.decode(response.responseText).access_token;
+			},
+			failure : function(response) {
+				Ext.MessageBox.show({
+					title : 'Login Failed',
+					msg : response.responseText,
+					buttons : Ext.MessageBox.OK,
+					icon : Ext.MessageBox.ERROR
+				});
+			}
+		});
+		
+    Ext.Ajax.request({
+			url : 'https://api.github.com/user?access_token='+accessToken,
+			loadMask: false,
+			success : function(response) {				  
+			  var email = Ext.decode(response.responseText).email;
+	      var name = Ext.decode(response.responseText).name;
+	      var picture = Ext.decode(response.responseText).avatar_url;
+	      Ext.util.Cookies.set('user',email);
+        Ext.util.Cookies.set('user_name',name);
+        Ext.util.Cookies.set('picture',picture);
+        Ext.util.Cookies.set('access_token',accessToken);
+        Ext.util.Cookies.set('provider', 'google');
+			},
+			failure : function(response) {
+				Ext.MessageBox.show({
+					title : 'Login Failed',
+					msg : response.responseText,
+					buttons : Ext.MessageBox.OK,
+					icon : Ext.MessageBox.ERROR
+				});
+			}
+		});
+  },  
+  
 	reset : function(btn) {
 		btn.up('window').down('form').getForm().reset();
 	},
 	
 	logout : function(btn) {
 		Ext.util.Cookies.clear('user');
+    Ext.util.Cookies.clear('user_name');
+    Ext.util.Cookies.clear('picture');
     Ext.util.Cookies.clear('provider');
     Ext.util.Cookies.clear('access_token');
     Ext.state.Manager.clear();

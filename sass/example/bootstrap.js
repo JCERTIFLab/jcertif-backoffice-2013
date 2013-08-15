@@ -33,12 +33,13 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.form.MultiSelect": [
     "Ext.ux.Multiselect"
   ],
+  "JCertifBO.store.AuthProviders": [],
   "JCertifBO.view.speaker.Grid": [],
   "JCertifBO.view.Viewport": [],
   "ExtThemeNeptune.grid.column.RowNumberer": [],
   "JCertifBO.view.referentiel.Add": [],
-  "Ext.ux.PreviewPlugin": [],
   "JCertifBO.controller.AdminOptionsController": [],
+  "Ext.ux.PreviewPlugin": [],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "JCertifBO.store.SponsorLevels": [],
@@ -128,8 +129,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.view.Home": [],
   "Ext.ux.ToolbarDroppable": [],
   "JCertifBO.store.Rooms": [],
-  "Ext.ux.event.Maker": [],
   "JCertifBO.view.referentiel.Grid": [],
+  "Ext.ux.event.Maker": [],
   "JCertifBO.view.session.Grid": [],
   "Ext.ux.DataView.Draggable": [],
   "Ext.ux.TabCloseMenu": [],
@@ -137,6 +138,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.view.site.Grid": [],
   "Ext.ux.DataTip": [],
   "Ext.ux.grid.filter.DateTimeFilter": [],
+  "JCertifBO.model.AuthProvider": [],
   "Ext.ux.form.ItemSelector": [
     "Ext.ux.ItemSelector"
   ],
@@ -178,6 +180,7 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.multiselect",
     "widget.multiselectfield"
   ],
+  "JCertifBO.store.AuthProviders": [],
   "JCertifBO.view.speaker.Grid": [
     "widget.speakergrid"
   ],
@@ -186,10 +189,10 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.referentiel.Add": [
     "widget.referentieladd"
   ],
+  "JCertifBO.controller.AdminOptionsController": [],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
   ],
-  "JCertifBO.controller.AdminOptionsController": [],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "JCertifBO.store.SponsorLevels": [],
@@ -333,10 +336,10 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.Home": [],
   "Ext.ux.ToolbarDroppable": [],
   "JCertifBO.store.Rooms": [],
-  "Ext.ux.event.Maker": [],
   "JCertifBO.view.referentiel.Grid": [
     "widget.referentielgrid"
   ],
+  "Ext.ux.event.Maker": [],
   "JCertifBO.view.session.Grid": [
     "widget.sessiongrid"
   ],
@@ -354,6 +357,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.filter.DateTimeFilter": [
     "gridfilter.datetime"
   ],
+  "JCertifBO.model.AuthProvider": [],
   "Ext.ux.form.ItemSelector": [
     "widget.itemselector",
     "widget.itemselectorfield"

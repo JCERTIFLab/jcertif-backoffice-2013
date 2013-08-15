@@ -1,4 +1,6 @@
 BACKEND_URL='http://jcertif-backend.msomda.cloudbees.net';
+BACKOFFICE_URL='http://jcertiflab.github.io/jcertif-backoffice-2013';
+
 var splashscreen;
 
 Ext.application({

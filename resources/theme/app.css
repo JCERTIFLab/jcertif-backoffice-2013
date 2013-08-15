@@ -42,6 +42,20 @@
     color: #eee;
 }
 
+.google-auth-icon {
+    background-image: url(../images/google.png) !important;
+    width:25px!important; height:25px!important;
+    border : none; 
+    float: left;
+}
+
+.github-auth-icon {
+    background-image: url(../images/github.png) !important;
+    width:25px!important; height:25px!important;
+    border : none; 
+    float: left;
+}
+
 .admin-options-add {
     background-image: url(../images/add.gif) !important;
 }
