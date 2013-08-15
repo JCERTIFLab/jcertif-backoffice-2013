@@ -55,7 +55,9 @@ Ext.define('JCertifBO.controller.AdminOptionsController', {
         this.getOptionShow().removeAll();
         this.getOptionShow().add({xtype: gridName, flex: 1});
         var grid = this.getGrid(gridName);
-            
+        
+        Ext.Ajax.useDefaultXhrHeader = false;
+        Ext.Ajax.cors = true;    
         var store = Ext.create('Ext.data.Store', {
             model: option.get('model'),
             proxy: {
