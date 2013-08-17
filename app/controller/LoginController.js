@@ -83,11 +83,20 @@ Ext.define('JCertifBO.controller.LoginController', {
                 while (m = regex.exec(queryString)) {
                   params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
                 }
-                acToken =  params['access_token']; 
-                controller.validateGoogleToken(acToken);                                  
-                socialWin.close();
-                loginWin.close(); 
-                Ext.create('JCertifBO.view.Home'); 
+                error =  params['error'];
+                acToken =  params['access_token'];                                 
+                if(error != undefined){                
+                  Ext.MessageBox.show({
+          					title : 'Login Failed',
+          					msg : error,
+          					buttons : Ext.MessageBox.OK,
+          					icon : Ext.MessageBox.ERROR
+          				});
+                }else if (controller.validateGoogleToken(acToken)){
+                  Ext.create('JCertifBO.view.Home'); 
+                  loginWin.close();
+                }                                  
+                socialWin.close(); 
             }
         } catch(e) {
           console.log(e)
@@ -103,7 +112,7 @@ Ext.define('JCertifBO.controller.LoginController', {
         scope = this.getAuthProvidersStore().findRecord('name', 'github').get('scope');
 		
 		_url = baseUrl + '?client_id='+ clientId + '&scope='+scope+'&redirect_uri='+BACKOFFICE_URL
-		var socialWin = window.open(_url, "githubLoginWindow", 'width=800, height=600'); 
+		var socialWin = window.open(_url, "githubLoginWindow", 'scrollbars=1, width=800, height=600'); 
     var code;
     var controller = this;
     var pollTimer = window.setInterval(function() { 
@@ -115,11 +124,20 @@ Ext.define('JCertifBO.controller.LoginController', {
                 while (m = regex.exec(queryString)) {
                   params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
                 }
+                error =  params['error'];
                 code =  params['code']; 
-                controller.validateGithubToken(clientId, clientSecret, code);                                  
-                socialWin.close();
-                loginWin.close(); 
-                Ext.create('JCertifBO.view.Home'); 
+                if(error != undefined){                
+                  Ext.MessageBox.show({
+          					title : 'Login Failed',
+          					msg : error,
+          					buttons : Ext.MessageBox.OK,
+          					icon : Ext.MessageBox.ERROR
+          				});
+                }else if(controller.validateGithubToken(clientId, clientSecret, code)){                
+                  Ext.create('JCertifBO.view.Home'); 
+                  loginWin.close(); 
+                }                                  
+                socialWin.close();               
             }
         } catch(e) {
           console.log(e)
@@ -129,6 +147,7 @@ Ext.define('JCertifBO.controller.LoginController', {
 	},
   
   validateGoogleToken : function(accessToken){
+    var isValid = false;
     Ext.Ajax.useDefaultXhrHeader = false;
     Ext.Ajax.cors = true;
     Ext.Ajax.request({
@@ -143,6 +162,7 @@ Ext.define('JCertifBO.controller.LoginController', {
         Ext.util.Cookies.set('picture',picture);
         Ext.util.Cookies.set('access_token',accessToken);
         Ext.util.Cookies.set('provider', 'google');
+        isValid = true;
 			},
 			failure : function(response) {
 				Ext.MessageBox.show({
@@ -153,9 +173,11 @@ Ext.define('JCertifBO.controller.LoginController', {
 				});
 			}
 		});
+		return isValid;
   },  
   
   validateGithubToken : function(clientId, clientSecret, code){
+    var isValid = false;
     Ext.Ajax.useDefaultXhrHeader = false;
     Ext.Ajax.cors = true;
     var accessToken;
@@ -192,6 +214,7 @@ Ext.define('JCertifBO.controller.LoginController', {
         Ext.util.Cookies.set('picture',picture);
         Ext.util.Cookies.set('access_token',accessToken);
         Ext.util.Cookies.set('provider', 'google');
+        isValid = true;
 			},
 			failure : function(response) {
 				Ext.MessageBox.show({
@@ -202,6 +225,8 @@ Ext.define('JCertifBO.controller.LoginController', {
 				});
 			}
 		});
+		
+		return isValid;
   },  
   
 	reset : function(btn) {

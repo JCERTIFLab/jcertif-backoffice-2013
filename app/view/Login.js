@@ -63,7 +63,6 @@ Ext.define('JCertifBO.view.Login', {
 		this.buttons = [ {
 			cls : 'google-auth-icon',
 			action : 'googleplus-login',
-			tooltip: 'Logout',
 			autoWidth : true,
       autoHeight : true
 		},{
