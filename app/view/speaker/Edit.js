@@ -1,9 +1,9 @@
-Ext.define("JCertifBO.view.session.Add", {
+Ext.define("JCertifBO.view.speaker.Edit", {
     extend : 'Ext.window.Window',
-  	alias : 'widget.sessionadd',
-  	title : "Ajout d'une nouvelle session",
+  	alias : 'widget.speakeredit',
+  	title : "Mise &agrave; jour d'un pr&eacute;sentateur",
   	width : 400,
-  	height : 450,
+  	height : 500,
   	autoShow : true,
   	closable : true,
   	draggable : true,
@@ -18,21 +18,21 @@ Ext.define("JCertifBO.view.session.Add", {
   	},
   	
   	requires: [
-  	   'JCertifBO.view.session.Form'
+  	   'JCertifBO.view.speaker.Form'
     ],
     
   	initComponent : function() {
         
   		this.items = [ {
-  			xtype : 'sessionform',
+  			xtype : 'speakerform',
   			border : 0
   		} ];
   		this.buttons = [ {
   			text : 'Cancel',
   			action : 'cancel'
   		}, {
-  			text : 'Add',
-  			action : 'add'
+  			text : 'Save',
+  			action : 'save'
   		} ];
   
   		this.callParent(arguments);

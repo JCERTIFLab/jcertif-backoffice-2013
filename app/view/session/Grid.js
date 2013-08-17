@@ -5,7 +5,6 @@ Ext.define("JCertifBO.view.session.Grid", {
     cls: 'admin-options-grid',
 
     requires: [
-        'Ext.grid.plugin.RowEditing', 
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Date'
     ],
@@ -14,11 +13,6 @@ Ext.define("JCertifBO.view.session.Grid", {
     
     initComponent: function() {
         
-        var rowEditing = Ext.create('Ext.grid.plugin.RowEditing', {
-            clicksToEdit: 2,
-            autoCancel: false,
-        });
-        
         Ext.apply(this, {
             store: this.store,
 
@@ -26,90 +20,50 @@ Ext.define("JCertifBO.view.session.Grid", {
                 text: 'Id',
                 dataIndex: 'id',
                 flex: 1,
-                editor: 'textfield',
                 hidden:true
             }, {
                 text: 'Title',
                 dataIndex: 'title',
-                flex: 1,
-                editor: 'textfield'
+                flex: 1
             }, {
                 text: 'Summary',
                 dataIndex: 'summary',
-                flex: 1,
-                editor: 'textfield'
+                flex: 1
             }, {
                 text: 'Description',
                 dataIndex: 'description',
-                flex: 1,
-                editor: 'textfield'
+                flex: 1
             }, {
                 text: 'Status',
                 dataIndex: 'status',
-                flex: 1,
-                editor: {
-                  xtype: 'combo',
-                  store: Ext.create('JCertifBO.store.SessionStatuses'),
-        					displayField: 'label',
-                  valueField: 'label'
-                }
+                flex: 1
             }, {
                 text: 'Keyword',
                 dataIndex: 'keyword',
-                flex: 1,
-                editor: 'textfield'
+                flex: 1
             }, {
                 text: 'Category',
                 dataIndex: 'category',
-                flex: 1,
-                editor: {
-                  xtype: 'combo',
-                  store: Ext.create('JCertifBO.store.Categories'),
-        					displayField: 'label',
-                  valueField: 'label'
-                }
+                flex: 1
             }, {
                 text: 'Start',
                 dataIndex: 'start',
                 flex: 1,
-                renderer: Ext.util.Format.dateRenderer('d/m/Y H:m'),
-                editor: {
-                  xtype: 'datefield',
-                  format: 'd/m/Y H:m',
-                  renderer: Ext.util.Format.dateRenderer('d/m/Y H:m')
-                }
+                renderer: Ext.util.Format.dateRenderer('d/m/Y H:m')
                 
             }, {
                 text: 'End',
                 dataIndex: 'end',
                 flex: 1,
-                renderer: Ext.util.Format.dateRenderer('d/m/Y H:m'),
-                editor: {
-                  xtype: 'datefield',
-                  format: 'd/m/Y H:m',
-                  renderer: Ext.util.Format.dateRenderer('d/m/Y H:m')
-                }
+                renderer: Ext.util.Format.dateRenderer('d/m/Y H:m')
             }, {
                 text: 'Speakers',
                 dataIndex: 'speakers',
-                flex: 1,
-                editor: {
-                  xtype: 'combo',
-                  store: Ext.create('JCertifBO.store.Speakers'),
-        					tpl: '<tpl for="."><div class="x-boundlist-item">{firstname} {lastname}</div></tpl>',
-                  valueField: 'email',
-                  multiSelect: true
-                }
+                flex: 1
             }, {
                 text: 'Room',
                 dataIndex: 'room',
-                flex: 1,
-                editor: {
-                  xtype: 'combo',
-                  store: Ext.create('JCertifBO.store.Rooms'),
-        					displayField: 'name',
-                  valueField: 'id'
-                }
+                flex: 1
             }, {
                 text: 'version',
                 dataIndex: 'version',
@@ -140,8 +94,7 @@ Ext.define("JCertifBO.view.session.Grid", {
                     action: 'refresh'
                 }]
             }],
-            
-            plugins: [rowEditing],
+
             listeners: {
                 'selectionchange': function(selectionModel, records) {
                   this.down('#removeSession').setDisabled(!records.length);

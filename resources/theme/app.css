@@ -42,6 +42,12 @@
     color: #eee;
 }
 
+.logout-icon {
+    background-image: url(../images/logout.png) !important;
+    width:25px!important; height:25px!important;
+    border : none; 
+}
+
 .google-auth-icon {
     background-image: url(../images/google.png) !important;
     width:25px!important; height:25px!important;

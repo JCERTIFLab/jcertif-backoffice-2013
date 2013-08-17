@@ -783,6 +783,126 @@
         "name": "GoogleToken",
         "fields": "id:auto:null,email:auto:null,verified_email:auto:null,name:auto:null,given_name:auto:null,family_name:auto:null,link:auto:null,picture:auto:null,gender:auto:null,birthday:auto:null,locale:auto:null"
       }
+    },
+    "app/view/sponsor/Edit.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "sponsor.Edit",
+        "name": "sponsor.Edit",
+        "viewFileName": "sponsor/Edit"
+      }
+    },
+    "app/view/sponsor/Form.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "sponsor.Form",
+        "name": "sponsor.Form",
+        "viewFileName": "sponsor/Form"
+      }
+    },
+    "app/view/site/Form.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "site.Form",
+        "name": "site.Form",
+        "viewFileName": "site/Form"
+      }
+    },
+    "app/view/site/Edit.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "site.Edit",
+        "name": "site.Edit",
+        "viewFileName": "site/Edit"
+      }
+    },
+    "app/view/room/Form.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "room.Form",
+        "name": "room.Form",
+        "viewFileName": "room/Form"
+      }
+    },
+    "app/view/room/Edit.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "room.Edit",
+        "name": "room.Edit",
+        "viewFileName": "room/Edit"
+      }
+    },
+    "app/view/session/Edit.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "session.Edit",
+        "name": "session.Edit",
+        "viewFileName": "session/Edit"
+      }
+    },
+    "app/view/session/Form.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "session.Form",
+        "name": "session.Form",
+        "viewFileName": "session/Form"
+      }
+    },
+    "app/view/speaker/Form.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "speaker.Form",
+        "name": "speaker.Form",
+        "viewFileName": "speaker/Form"
+      }
+    },
+    "app/view/speaker/Edit.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "speaker.Edit",
+        "name": "speaker.Edit",
+        "viewFileName": "speaker/Edit"
+      }
+    },
+    "app/view/participant/Edit.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "participant.Edit",
+        "name": "participant.Edit",
+        "viewFileName": "participant/Edit"
+      }
+    },
+    "app/view/participant/Form.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "participant.Form",
+        "name": "participant.Form",
+        "viewFileName": "participant/Form"
+      }
     }
   }
 }

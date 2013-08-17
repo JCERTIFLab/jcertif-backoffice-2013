@@ -1,9 +1,9 @@
-Ext.define("JCertifBO.view.session.Add", {
+Ext.define("JCertifBO.view.sponsor.Edit", {
     extend : 'Ext.window.Window',
-  	alias : 'widget.sessionadd',
-  	title : "Ajout d'une nouvelle session",
+  	alias : 'widget.sponsoredit',
+  	title : "Mise &agrave; jour d'un sponsor",
   	width : 400,
-  	height : 450,
+  	height : 400,
   	autoShow : true,
   	closable : true,
   	draggable : true,
@@ -18,21 +18,22 @@ Ext.define("JCertifBO.view.session.Add", {
   	},
   	
   	requires: [
-  	   'JCertifBO.view.session.Form'
+  	   'JCertifBO.view.sponsor.Form'
     ],
-    
+  	
   	initComponent : function() {
-        
+
   		this.items = [ {
-  			xtype : 'sessionform',
+  			xtype : 'sponsorform',
   			border : 0
   		} ];
+  		
   		this.buttons = [ {
   			text : 'Cancel',
   			action : 'cancel'
   		}, {
-  			text : 'Add',
-  			action : 'add'
+  			text : 'Save',
+  			action : 'save'
   		} ];
   
   		this.callParent(arguments);

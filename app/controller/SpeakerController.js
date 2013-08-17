@@ -1,24 +1,29 @@
 Ext.define('JCertifBO.controller.SpeakerController', {
     extend: 'Ext.app.Controller',
     
-    stores: ['AdminOptions', 'Titles'],
+    stores: ['AdminOptions', 'Titles', 'Countries', 'Cities'],
     models: ['AdminOption', 'Speaker'],
     
     views: [
         'speaker.Grid',
-        'speaker.Add'
+        'speaker.Add',
+        'speaker.Edit'
     ],
 
 
     refs: [
         {ref: 'viewer', selector: 'viewer'},
-        {ref: 'speakerGrid', selector: 'speakergrid'}
+        {ref: 'speakerGrid', selector: 'speakergrid'},
+        {ref: 'speakerFormTitles', selector: 'speakerform combo#title'},
+        {ref: 'speakerFormCountries', selector: 'speakerform combo#country'},
+        {ref: 'speakerFormCities', selector: 'speakerform combo#city'},
+        {ref: 'speakerFormPasswordField', selector: 'speakerform textfield#password'}
     ],
     
     init: function() {
         this.control({
             'speakergrid': {
-                edit: this.updateSpeaker
+                itemdblclick: this.showEditSpeakerView
             },
             'speakergrid button[action=add]': {
                 click: this.showAddSpeakerView
@@ -26,20 +31,38 @@ Ext.define('JCertifBO.controller.SpeakerController', {
             'speakergrid button[action=refresh]': {
                 click: this.refreshSpeakerGrid
             },
+      			'speakergrid button[action=remove]' : {
+      				  click : this.removeSpeaker
+      			},
             'speakeradd button[action=add]' : {
       				  click : this.addSpeaker
       			},
       			'speakeradd button[action=cancel]' : {
       				  click : this.cancel
       			},
-      			'speakergrid button[action=remove]' : {
-      				  click : this.removeSpeaker
+            'speakeredit button[action=save]' : {
+      				  click : this.updateSpeaker
+      			},
+      			'speakeredit button[action=cancel]' : {
+      				  click : this.cancel
       			}
         });
     },
     
     showAddSpeakerView: function(btn){
       Ext.create('JCertifBO.view.speaker.Add');
+      this.getSpeakerFormTitles().bindStore(this.getTitlesStore());
+      this.getSpeakerFormCountries().bindStore(this.getCountriesStore());
+      this.getSpeakerFormCities().bindStore(this.getCitiesStore());
+    },
+    
+    showEditSpeakerView: function(grid, record){
+      var view = Ext.create('JCertifBO.view.speaker.Edit');
+      view.down('form').loadRecord(record);
+      this.getSpeakerFormTitles().bindStore(this.getTitlesStore());
+      this.getSpeakerFormCountries().bindStore(this.getCountriesStore());
+      this.getSpeakerFormCities().bindStore(this.getCitiesStore());
+      this.getSpeakerFormPasswordField().setDisabled(true);
     },
     
     refreshSpeakerGrid: function(btn){
@@ -53,11 +76,13 @@ Ext.define('JCertifBO.controller.SpeakerController', {
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider')
       });
+      var controller = this;
   		if (form.isValid()) {
   			Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSpeakerGrid().getStore().model.modelName).get('createUrl'),
   				jsonData : Ext.JSON.encode(form.getValues()),
   				success : function(response) {
+  				  controller.getSpeakerGrid().getStore().load();
             win.close();														
   				},
   				failure : function(response) {
@@ -80,10 +105,12 @@ Ext.define('JCertifBO.controller.SpeakerController', {
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider'),
       };
+      var controller = this;
       Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSpeakerGrid().getStore().model.modelName).get('removeUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSpeakerGrid().getStore().load();
             Ext.MessageBox.show({
   						title : 'Message',
   						msg : "L'&eacute;l&eacute;ment &agrave; bien &eacute;t&eacute; supprim&eacute;",
@@ -103,19 +130,25 @@ Ext.define('JCertifBO.controller.SpeakerController', {
     },
     
     updateSpeaker: function(btn){
-      var speaker = this.getSpeakerGrid().getSelectionModel().getSelection()[0];
-      var data = speaker.data;
+      var win    = btn.up('window'),
+        form   = win.down('form'),
+        values = form.getValues(),
+        speaker = this.getSpeakerGrid().getSelectionModel().getSelection()[0];
+      
+      var data = values;
       //on rajoute la version de l'objet avant modification
       data['version'] = speaker.raw['version'];
-      data['email'] = speaker.raw['email'];
       data['user'] = Ext.util.Cookies.get('user');
       data['access_token'] = Ext.util.Cookies.get('access_token');
       data['provider'] = Ext.util.Cookies.get('provider');
 
+      var controller = this;
       Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSpeakerGrid().getStore().model.modelName).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSpeakerGrid().getStore().load();
+  				  win.close();
             Ext.MessageBox.show({
   						title : 'Message',
   						msg : "L'&eacute;l&eacute;ment &agrave; bien &eacute;t&eacute; sauvegard&eacute;",

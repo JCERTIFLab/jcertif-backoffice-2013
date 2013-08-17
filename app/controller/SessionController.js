@@ -6,19 +6,24 @@ Ext.define('JCertifBO.controller.SessionController', {
     
     views: [
         'session.Grid',
-        'session.Add'
+        'session.Add',
+        'session.Edit'
     ],
 
 
     refs: [
         {ref: 'viewer', selector: 'viewer'},
-        {ref: 'sessionGrid', selector: 'sessiongrid'}
+        {ref: 'sessionGrid', selector: 'sessiongrid'},
+        {ref: 'sessionFormStatuses', selector: 'sessionform combo#status'},
+        {ref: 'sessionFormCategories', selector: 'sessionform combo#category'},
+        {ref: 'sessionFormSpeakers', selector: 'sessionform combo#speakers'},
+        {ref: 'sessionFormRooms', selector: 'sessionform combo#room'}
     ],
     
     init: function() {
         this.control({
             'sessiongrid': {
-                edit: this.updateSession
+                itemdblclick: this.showEditSessionView
             },
             'sessiongrid button[action=add]': {
                 click: this.showAddSessionView
@@ -26,20 +31,39 @@ Ext.define('JCertifBO.controller.SessionController', {
             'sessiongrid button[action=refresh]': {
                 click: this.refreshSessionGrid
             },
+      			'sessiongrid button[action=remove]' : {
+      				  click : this.removeSession
+      			},
             'sessionadd button[action=add]' : {
       				  click : this.addSession
       			},
       			'sessionadd button[action=cancel]' : {
       				  click : this.cancel
       			},
-      			'sessiongrid button[action=remove]' : {
-      				  click : this.removeSession
+            'sessionedit button[action=save]' : {
+      				  click : this.updateSession
+      			},
+      			'sessionedit button[action=cancel]' : {
+      				  click : this.cancel
       			}
         });
     },
     
     showAddSessionView: function(btn){
       Ext.create('JCertifBO.view.session.Add');
+      this.getSessionFormStatuses().bindStore(this.getSessionStatusesStore());
+      this.getSessionFormCategories().bindStore(this.getCategoriesStore());
+      this.getSessionFormSpeakers().bindStore(this.getSpeakersStore());
+      this.getSessionFormRooms().bindStore(this.getRoomsStore());
+    },
+    
+    showEditSessionView: function(grid, record){
+      var view = Ext.create('JCertifBO.view.session.Edit');
+      view.down('form').loadRecord(record);
+      this.getSessionFormStatuses().bindStore(this.getSessionStatusesStore());
+      this.getSessionFormCategories().bindStore(this.getCategoriesStore());
+      this.getSessionFormSpeakers().bindStore(this.getSpeakersStore());
+      this.getSessionFormRooms().bindStore(this.getRoomsStore());
     },
     
     refreshSessionGrid: function(btn){
@@ -53,11 +77,13 @@ Ext.define('JCertifBO.controller.SessionController', {
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider')
       });
+      var controller = this;
   		if (form.isValid()) {
   			Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSessionGrid().getStore().model.modelName, 0, false, true, true).get('createUrl'),
   				jsonData : Ext.JSON.encode(form.getValues()),
   				success : function(response) {
+  				  controller.getSessionGrid().getStore().load();
             win.close();														
   				},
   				failure : function(response) {
@@ -80,10 +106,12 @@ Ext.define('JCertifBO.controller.SessionController', {
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider'),
       };
+      var controller = this;
       Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSessionGrid().getStore().model.modelName, 0, false, true, true).get('removeUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSessionGrid().getStore().load();
             Ext.MessageBox.show({
   						title : 'Message',
   						msg : "L'&eacute;l&eacute;ment &agrave; bien &eacute;t&eacute; supprim&eacute;",
@@ -103,8 +131,12 @@ Ext.define('JCertifBO.controller.SessionController', {
     },
     
     updateSession: function(btn){
-      var session = this.getSessionGrid().getSelectionModel().getSelection()[0];
-      var data = session.data;
+      var win    = btn.up('window'),
+        form   = win.down('form'),
+        values = form.getValues(),
+        session = this.getSessionGrid().getSelectionModel().getSelection()[0];
+        
+      var data = values;
       //on rajoute la version de l'objet avant modification
       data['version'] = session.raw['version'];
       data['id'] = session.raw['id'];
@@ -112,10 +144,13 @@ Ext.define('JCertifBO.controller.SessionController', {
       data['access_token'] = Ext.util.Cookies.get('access_token');
       data['provider'] = Ext.util.Cookies.get('provider');
 
+      var controller = this;
       Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSessionGrid().getStore().model.modelName, 0, false, true, true).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSessionGrid().getStore().load();
+  				  win.close();
             Ext.MessageBox.show({
   						title : 'Message',
   						msg : "L'&eacute;l&eacute;ment &agrave; bien &eacute;t&eacute; sauvegard&eacute;",

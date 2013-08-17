@@ -23,3 +23,7 @@ Ext.application({
     ],      
     autoCreateViewport: true
 });
+
+Ext.onReady(function () {
+    Ext.tip.QuickTipManager.init();
+});
