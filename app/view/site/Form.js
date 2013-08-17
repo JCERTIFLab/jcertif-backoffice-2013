@@ -74,10 +74,23 @@ Ext.define("JCertifBO.view.site.Form", {
 			allowblank : false,
 		},{
 			xtype : 'textfield',
+			vtype : 'url',
 			fieldLabel : 'Photo',
 			name : 'photo',
 			itemId : 'photo',
-			emptyText : 'photo'
+			emptyText : 'photo',
+			listeners:{
+        change: function(textfield, value) {
+          var preview = Ext.getCmp('photo-preview');
+          preview.setSrc(value); 
+        }
+      }
+		},{
+			xtype : 'imagecomponent',
+			id: 'photo-preview',
+			cls: 'preview-img',
+			src: Ext.BLANK_IMAGE_URL
+      
 		},{
 			xtype : 'numberfield',
 			fieldLabel : 'Latitude',

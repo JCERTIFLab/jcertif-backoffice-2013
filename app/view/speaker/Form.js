@@ -91,6 +91,7 @@ Ext.define("JCertifBO.view.speaker.Form", {
 			emptyText : 'company'
 		},{
 			xtype : 'textfield',
+			vtype : 'url',
 			fieldLabel : 'Phone',
 			name : 'phone',
 			itemId : 'phone',
@@ -100,7 +101,18 @@ Ext.define("JCertifBO.view.speaker.Form", {
 			fieldLabel : 'Photo',
 			name : 'photo',
 			itemId : 'photo',
-			emptyText : 'photo'
+			emptyText : 'photo',
+			listeners:{
+        change: function(textfield, value) {
+          var preview = Ext.getCmp('photo-preview');
+          preview.setSrc(value); 
+        }
+      }
+		},{
+			xtype : 'imagecomponent',
+			id: 'photo-preview',
+			cls: 'preview-img',
+			src: Ext.BLANK_IMAGE_URL    
 		},{
 			xtype : 'textfield',
 			fieldLabel : 'Biography',

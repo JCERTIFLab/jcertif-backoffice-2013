@@ -36,11 +36,24 @@ Ext.define("JCertifBO.view.sponsor.Form", {
 			allowblank : false,
 		},{
 			xtype : 'textfield',
+			vtype : 'url',
 			fieldLabel : 'Logo',
 			name : 'logo',
 			itemId : 'logo',
 			emptyText : 'logo',
 			allowblank : false,
+      listeners:{
+        change: function(textfield, value) {
+          var preview = Ext.getCmp('logo-preview');
+          preview.setSrc(value); 
+        }
+      }
+		},{
+			xtype : 'imagecomponent',
+			id: 'logo-preview',
+			cls: 'preview-img',
+			src: Ext.BLANK_IMAGE_URL
+      
 		},{
 			xtype : 'combo',
 			fieldLabel : 'Country',

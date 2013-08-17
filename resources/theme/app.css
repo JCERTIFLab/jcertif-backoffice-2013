@@ -62,6 +62,13 @@
     float: left;
 }
 
+.preview-img{
+    float: right;
+    width:100px!important; height:100px!important;
+    margin: auto;
+    padding: 5px;
+}
+
 .admin-options-add {
     background-image: url(../images/add.gif) !important;
 }
