@@ -7,8 +7,7 @@ var splashscreen;
 Ext.application({
     name       : 'JCertifBO',
     appFolder  : 'app',
-    
-    
+        
     controllers : [
         'LoginController',
         'HomeController',
