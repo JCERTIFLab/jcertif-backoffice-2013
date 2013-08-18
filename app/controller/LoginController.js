@@ -92,10 +92,8 @@ Ext.define('JCertifBO.controller.LoginController', {
           					buttons : Ext.MessageBox.OK,
           					icon : Ext.MessageBox.ERROR
           				});
-                }else if (controller.validateGoogleToken(acToken)){
-                  Ext.create('JCertifBO.view.Home'); 
-                  loginWin.close();
-                }                                  
+                }
+                controller.validateGoogleToken(acToken, loginWin);                                
                 socialWin.close(); 
             }
         } catch(e) {
@@ -133,10 +131,8 @@ Ext.define('JCertifBO.controller.LoginController', {
           					buttons : Ext.MessageBox.OK,
           					icon : Ext.MessageBox.ERROR
           				});
-                }else if(controller.validateGithubToken(clientId, clientSecret, code)){                
-                  Ext.create('JCertifBO.view.Home'); 
-                  loginWin.close(); 
-                }                                  
+                }
+                controller.validateGithubToken(clientId, clientSecret, code, loginWin);                                  
                 socialWin.close();               
             }
         } catch(e) {
@@ -146,8 +142,7 @@ Ext.define('JCertifBO.controller.LoginController', {
      
 	},
   
-  validateGoogleToken : function(accessToken){
-    var isValid = false;
+  validateGoogleToken : function(accessToken, loginWindow){
     Ext.Ajax.useDefaultXhrHeader = false;
     Ext.Ajax.cors = true;
     Ext.Ajax.request({
@@ -162,7 +157,8 @@ Ext.define('JCertifBO.controller.LoginController', {
         Ext.util.Cookies.set('picture',picture);
         Ext.util.Cookies.set('access_token',accessToken);
         Ext.util.Cookies.set('provider', 'google');
-        isValid = true;
+        Ext.create('JCertifBO.view.Home');
+        loginWindow.close();
 			},
 			failure : function(response) {
 				Ext.MessageBox.show({
@@ -173,14 +169,12 @@ Ext.define('JCertifBO.controller.LoginController', {
 				});
 			}
 		});
-		return isValid;
   },  
   
-  validateGithubToken : function(clientId, clientSecret, code){
-    var isValid = false;
+  validateGithubToken : function(clientId, clientSecret, code, loginWindow){
     Ext.Ajax.useDefaultXhrHeader = false;
     Ext.Ajax.cors = true;
-    var accessToken;
+
     Ext.Ajax.request({
 			url : 'https://github.com/login/oauth/access_token',
 			params: {
@@ -190,7 +184,32 @@ Ext.define('JCertifBO.controller.LoginController', {
       },
 			loadMask: false,
 			success : function(response) {				  
-			  accessToken = Ext.decode(response.responseText).access_token;
+			  var accessToken = Ext.decode(response.responseText).access_token;
+			  
+			  Ext.Ajax.request({
+    			url : 'https://api.github.com/user?access_token='+accessToken,
+    			loadMask: false,
+    			success : function(response) {				  
+    			  var email = Ext.decode(response.responseText).email;
+    	      var name = Ext.decode(response.responseText).name;
+    	      var picture = Ext.decode(response.responseText).avatar_url;
+    	      Ext.util.Cookies.set('user',email);
+            Ext.util.Cookies.set('user_name',name);
+            Ext.util.Cookies.set('picture',picture);
+            Ext.util.Cookies.set('access_token',accessToken);
+            Ext.util.Cookies.set('provider', 'google');
+            Ext.create('JCertifBO.view.Home');
+            loginWindow.close();
+    			},
+    			failure : function(response) {
+    				Ext.MessageBox.show({
+    					title : 'Login Failed',
+    					msg : response.responseText,
+    					buttons : Ext.MessageBox.OK,
+    					icon : Ext.MessageBox.ERROR
+    				});
+    			}
+    		});
 			},
 			failure : function(response) {
 				Ext.MessageBox.show({
@@ -202,31 +221,8 @@ Ext.define('JCertifBO.controller.LoginController', {
 			}
 		});
 		
-    Ext.Ajax.request({
-			url : 'https://api.github.com/user?access_token='+accessToken,
-			loadMask: false,
-			success : function(response) {				  
-			  var email = Ext.decode(response.responseText).email;
-	      var name = Ext.decode(response.responseText).name;
-	      var picture = Ext.decode(response.responseText).avatar_url;
-	      Ext.util.Cookies.set('user',email);
-        Ext.util.Cookies.set('user_name',name);
-        Ext.util.Cookies.set('picture',picture);
-        Ext.util.Cookies.set('access_token',accessToken);
-        Ext.util.Cookies.set('provider', 'google');
-        isValid = true;
-			},
-			failure : function(response) {
-				Ext.MessageBox.show({
-					title : 'Login Failed',
-					msg : response.responseText,
-					buttons : Ext.MessageBox.OK,
-					icon : Ext.MessageBox.ERROR
-				});
-			}
-		});
+    
 		
-		return isValid;
   },  
   
 	reset : function(btn) {
