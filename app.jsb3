@@ -1,0 +1,1071 @@
+{
+    "projectName": "Project Name",
+    "licenseText": "Copyright(c) 2012 Company Name",
+    "builds": [
+        {
+            "name": "All Classes",
+            "target": "all-classes.js",
+            "options": {
+                "debug": true
+            },
+            "files": [
+                {
+                    "clsName": "JCertifBO.view.AppHeader",
+                    "name": "AppHeader.js",
+                    "path": "app/view/"
+                },
+                {
+                    "clsName": "JCertifBO.view.option.Show",
+                    "name": "Show.js",
+                    "path": "app/view/option/"
+                },
+                {
+                    "clsName": "Ext.layout.container.border.Region",
+                    "name": "Region.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/container/border/"
+                },
+                {
+                    "clsName": "Ext.dd.DragTracker",
+                    "name": "DragTracker.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.container.Monitor",
+                    "name": "Monitor.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/container/"
+                },
+                {
+                    "clsName": "Ext.resizer.Splitter",
+                    "name": "Splitter.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Fit",
+                    "name": "Fit.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.util.Point",
+                    "name": "Point.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.KeyNav",
+                    "name": "KeyNav.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.util.ComponentDragger",
+                    "name": "ComponentDragger.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.window.Window",
+                    "name": "Window.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/window/"
+                },
+                {
+                    "clsName": "Ext.form.FieldAncestor",
+                    "name": "FieldAncestor.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/"
+                },
+                {
+                    "clsName": "Ext.form.FieldSet",
+                    "name": "FieldSet.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/"
+                },
+                {
+                    "clsName": "JCertifBO.view.Login",
+                    "name": "Login.js",
+                    "path": "app/view/"
+                },
+                {
+                    "clsName": "Ext.resizer.BorderSplitter",
+                    "name": "BorderSplitter.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Border",
+                    "name": "Border.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Card",
+                    "name": "Card.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.tab.Tab",
+                    "name": "Tab.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/tab/"
+                },
+                {
+                    "clsName": "Ext.tab.Bar",
+                    "name": "Bar.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/tab/"
+                },
+                {
+                    "clsName": "Ext.tab.Panel",
+                    "name": "Panel.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/tab/"
+                },
+                {
+                    "clsName": "JCertifBO.view.Viewer",
+                    "name": "Viewer.js",
+                    "path": "app/view/"
+                },
+                {
+                    "clsName": "JCertifBO.view.Home",
+                    "name": "Home.js",
+                    "path": "app/view/"
+                },
+                {
+                    "clsName": "JCertifBO.view.Viewport",
+                    "name": "Viewport.js",
+                    "path": "app/view/"
+                },
+                {
+                    "clsName": "Ext.util.Cookies",
+                    "name": "Cookies.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "JCertifBO.view.referentiel.Add",
+                    "name": "Add.js",
+                    "path": "app/view/referentiel/"
+                },
+                {
+                    "clsName": "Ext.data.IdGenerator",
+                    "name": "IdGenerator.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Errors",
+                    "name": "Errors.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.validations",
+                    "name": "validations.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Group",
+                    "name": "Group.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.panel.Table",
+                    "name": "Table.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.util.Bindable",
+                    "name": "Bindable.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.data.SortTypes",
+                    "name": "SortTypes.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Server",
+                    "name": "Server.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Client",
+                    "name": "Client.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.util.LruCache",
+                    "name": "LruCache.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.layout.component.BoundList",
+                    "name": "BoundList.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.button.Split",
+                    "name": "Split.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/button/"
+                },
+                {
+                    "clsName": "Ext.picker.Month",
+                    "name": "Month.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/picker/"
+                },
+                {
+                    "clsName": "Ext.grid.CellContext",
+                    "name": "CellContext.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.view.NodeCache",
+                    "name": "NodeCache.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.toolbar.TextItem",
+                    "name": "TextItem.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/toolbar/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.Field",
+                    "name": "Field.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "Ext.data.flash.BinaryXhr",
+                    "name": "BinaryXhr.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/flash/"
+                },
+                {
+                    "clsName": "Ext.util.CSS",
+                    "name": "CSS.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.form.field.VTypes",
+                    "name": "VTypes.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.Text",
+                    "name": "Text.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "Ext.LoadMask",
+                    "name": "LoadMask.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.form.action.Action",
+                    "name": "Action.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/action/"
+                },
+                {
+                    "clsName": "Ext.layout.container.Anchor",
+                    "name": "Anchor.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/container/"
+                },
+                {
+                    "clsName": "Ext.form.Labelable",
+                    "name": "Labelable.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/"
+                },
+                {
+                    "clsName": "Ext.form.field.Field",
+                    "name": "Field.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.selection.Model",
+                    "name": "Model.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.TextArea",
+                    "name": "TextArea.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "Ext.layout.component.ProgressBar",
+                    "name": "ProgressBar.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Memory",
+                    "name": "Memory.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.data.PageMap",
+                    "name": "PageMap.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.picker.Date",
+                    "name": "Date.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/picker/"
+                },
+                {
+                    "clsName": "Ext.data.Types",
+                    "name": "Types.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Field",
+                    "name": "Field.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.data.Model",
+                    "name": "Model.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "JCertifBO.model.AdminOption",
+                    "name": "AdminOption.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.Trigger",
+                    "name": "Trigger.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "Ext.layout.component.field.ComboBox",
+                    "name": "ComboBox.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/field/"
+                },
+                {
+                    "clsName": "Ext.data.Connection",
+                    "name": "Connection.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.Ajax",
+                    "name": "Ajax.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.data.proxy.Ajax",
+                    "name": "Ajax.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/proxy/"
+                },
+                {
+                    "clsName": "Ext.data.Store",
+                    "name": "Store.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "JCertifBO.store.AdminOptions",
+                    "name": "AdminOptions.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Countries",
+                    "name": "Countries.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Cities",
+                    "name": "Cities.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "Ext.view.TableLayout",
+                    "name": "TableLayout.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.form.action.Load",
+                    "name": "Load.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/action/"
+                },
+                {
+                    "clsName": "Ext.form.action.Submit",
+                    "name": "Submit.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/action/"
+                },
+                {
+                    "clsName": "Ext.form.field.Base",
+                    "name": "Base.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Text",
+                    "name": "Text.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Trigger",
+                    "name": "Trigger.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Picker",
+                    "name": "Picker.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Date",
+                    "name": "Date.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.selection.DataViewModel",
+                    "name": "DataViewModel.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.view.AbstractView",
+                    "name": "AbstractView.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.view.View",
+                    "name": "View.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.view.Table",
+                    "name": "Table.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.grid.View",
+                    "name": "View.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.grid.Panel",
+                    "name": "Panel.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/"
+                },
+                {
+                    "clsName": "JCertifBO.view.referentiel.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/referentiel/"
+                },
+                {
+                    "clsName": "JCertifBO.view.room.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/room/"
+                },
+                {
+                    "clsName": "JCertifBO.view.session.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/session/"
+                },
+                {
+                    "clsName": "JCertifBO.view.speaker.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/speaker/"
+                },
+                {
+                    "clsName": "JCertifBO.view.participant.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/participant/"
+                },
+                {
+                    "clsName": "Ext.form.field.Spinner",
+                    "name": "Spinner.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Number",
+                    "name": "Number.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.toolbar.Paging",
+                    "name": "Paging.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/toolbar/"
+                },
+                {
+                    "clsName": "Ext.view.BoundList",
+                    "name": "BoundList.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.view.BoundListKeyNav",
+                    "name": "BoundListKeyNav.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/view/"
+                },
+                {
+                    "clsName": "Ext.form.field.ComboBox",
+                    "name": "ComboBox.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "JCertifBO.view.sponsor.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/sponsor/"
+                },
+                {
+                    "clsName": "JCertifBO.view.site.Grid",
+                    "name": "Grid.js",
+                    "path": "app/view/site/"
+                },
+                {
+                    "clsName": "Ext.form.field.TextArea",
+                    "name": "TextArea.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.form.field.Display",
+                    "name": "Display.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.ProgressBar",
+                    "name": "ProgressBar.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.window.MessageBox",
+                    "name": "MessageBox.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/window/"
+                },
+                {
+                    "clsName": "Ext.form.Basic",
+                    "name": "Basic.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/"
+                },
+                {
+                    "clsName": "Ext.form.Panel",
+                    "name": "Panel.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/"
+                },
+                {
+                    "clsName": "JCertifBO.view.sponsor.Form",
+                    "name": "Form.js",
+                    "path": "app/view/sponsor/"
+                },
+                {
+                    "clsName": "JCertifBO.view.sponsor.Add",
+                    "name": "Add.js",
+                    "path": "app/view/sponsor/"
+                },
+                {
+                    "clsName": "JCertifBO.view.sponsor.Edit",
+                    "name": "Edit.js",
+                    "path": "app/view/sponsor/"
+                },
+                {
+                    "clsName": "JCertifBO.view.site.Form",
+                    "name": "Form.js",
+                    "path": "app/view/site/"
+                },
+                {
+                    "clsName": "JCertifBO.view.site.Add",
+                    "name": "Add.js",
+                    "path": "app/view/site/"
+                },
+                {
+                    "clsName": "JCertifBO.view.site.Edit",
+                    "name": "Edit.js",
+                    "path": "app/view/site/"
+                },
+                {
+                    "clsName": "JCertifBO.view.room.Form",
+                    "name": "Form.js",
+                    "path": "app/view/room/"
+                },
+                {
+                    "clsName": "JCertifBO.view.room.Add",
+                    "name": "Add.js",
+                    "path": "app/view/room/"
+                },
+                {
+                    "clsName": "JCertifBO.view.room.Edit",
+                    "name": "Edit.js",
+                    "path": "app/view/room/"
+                },
+                {
+                    "clsName": "JCertifBO.view.session.Form",
+                    "name": "Form.js",
+                    "path": "app/view/session/"
+                },
+                {
+                    "clsName": "JCertifBO.view.session.Add",
+                    "name": "Add.js",
+                    "path": "app/view/session/"
+                },
+                {
+                    "clsName": "JCertifBO.view.session.Edit",
+                    "name": "Edit.js",
+                    "path": "app/view/session/"
+                },
+                {
+                    "clsName": "JCertifBO.view.speaker.Form",
+                    "name": "Form.js",
+                    "path": "app/view/speaker/"
+                },
+                {
+                    "clsName": "JCertifBO.view.speaker.Add",
+                    "name": "Add.js",
+                    "path": "app/view/speaker/"
+                },
+                {
+                    "clsName": "JCertifBO.view.speaker.Edit",
+                    "name": "Edit.js",
+                    "path": "app/view/speaker/"
+                },
+                {
+                    "clsName": "JCertifBO.view.participant.Form",
+                    "name": "Form.js",
+                    "path": "app/view/participant/"
+                },
+                {
+                    "clsName": "JCertifBO.view.participant.Add",
+                    "name": "Add.js",
+                    "path": "app/view/participant/"
+                },
+                {
+                    "clsName": "JCertifBO.view.participant.Edit",
+                    "name": "Edit.js",
+                    "path": "app/view/participant/"
+                },
+                {
+                    "clsName": "JCertifBO.model.User",
+                    "name": "User.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.HomeController",
+                    "name": "HomeController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Referentiel",
+                    "name": "Referentiel.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.ReferentielController",
+                    "name": "ReferentielController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Sponsor",
+                    "name": "Sponsor.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Site",
+                    "name": "Site.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.SiteController",
+                    "name": "SiteController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Room",
+                    "name": "Room.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Session",
+                    "name": "Session.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Speaker",
+                    "name": "Speaker.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Participant",
+                    "name": "Participant.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Sites",
+                    "name": "Sites.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.RoomController",
+                    "name": "RoomController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Speakers",
+                    "name": "Speakers.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Rooms",
+                    "name": "Rooms.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Sessions",
+                    "name": "Sessions.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Category",
+                    "name": "Category.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.SponsorLevel",
+                    "name": "SponsorLevel.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.Title",
+                    "name": "Title.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.SessionStatus",
+                    "name": "SessionStatus.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.model.AuthProvider",
+                    "name": "AuthProvider.js",
+                    "path": "app/model/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.AdminOptionsController",
+                    "name": "AdminOptionsController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.store.SponsorLevels",
+                    "name": "SponsorLevels.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.SponsorController",
+                    "name": "SponsorController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.store.SessionStatuses",
+                    "name": "SessionStatuses.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Categories",
+                    "name": "Categories.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.SessionController",
+                    "name": "SessionController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.store.Titles",
+                    "name": "Titles.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.SpeakerController",
+                    "name": "SpeakerController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.ParticipantController",
+                    "name": "ParticipantController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "JCertifBO.store.AuthProviders",
+                    "name": "AuthProviders.js",
+                    "path": "app/store/"
+                },
+                {
+                    "clsName": "JCertifBO.controller.LoginController",
+                    "name": "LoginController.js",
+                    "path": "app/controller/"
+                },
+                {
+                    "clsName": "Ext.dom.Layer",
+                    "name": "Layer.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dom/"
+                },
+                {
+                    "clsName": "Ext.data.Batch",
+                    "name": "Batch.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.resizer.Resizer",
+                    "name": "Resizer.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.app.domain.Controller",
+                    "name": "Controller.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/app/domain/"
+                },
+                {
+                    "clsName": "Ext.panel.Tool",
+                    "name": "Tool.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/panel/"
+                },
+                {
+                    "clsName": "Ext.layout.component.Body",
+                    "name": "Body.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.Img",
+                    "name": "Img.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.resizer.SplitterTracker",
+                    "name": "SplitterTracker.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.layout.component.FieldSet",
+                    "name": "FieldSet.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/component/"
+                },
+                {
+                    "clsName": "Ext.resizer.BorderSplitterTracker",
+                    "name": "BorderSplitterTracker.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.selection.RowModel",
+                    "name": "RowModel.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.selection.CellModel",
+                    "name": "CellModel.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.selection.CheckboxModel",
+                    "name": "CheckboxModel.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/selection/"
+                },
+                {
+                    "clsName": "Ext.data.Request",
+                    "name": "Request.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.util.Grouper",
+                    "name": "Grouper.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.data.reader.Array",
+                    "name": "Array.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/reader/"
+                },
+                {
+                    "clsName": "Ext.ElementLoader",
+                    "name": "ElementLoader.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.util.Queue",
+                    "name": "Queue.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/util/"
+                },
+                {
+                    "clsName": "Ext.menu.Item",
+                    "name": "Item.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.menu.Separator",
+                    "name": "Separator.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.form.CheckboxManager",
+                    "name": "CheckboxManager.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/"
+                },
+                {
+                    "clsName": "Ext.AbstractPlugin",
+                    "name": "AbstractPlugin.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.grid.plugin.BufferedRendererTableView",
+                    "name": "BufferedRendererTableView.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/plugin/"
+                },
+                {
+                    "clsName": "Ext.grid.ColumnLayout",
+                    "name": "ColumnLayout.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.grid.plugin.HeaderResizer",
+                    "name": "HeaderResizer.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/plugin/"
+                },
+                {
+                    "clsName": "Ext.grid.locking.View",
+                    "name": "View.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/locking/"
+                },
+                {
+                    "clsName": "Ext.layout.ClassList",
+                    "name": "ClassList.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/"
+                },
+                {
+                    "clsName": "Ext.FocusManager",
+                    "name": "FocusManager.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.grid.ColumnManager",
+                    "name": "ColumnManager.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.dd.DragZone",
+                    "name": "DragZone.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.Registry",
+                    "name": "Registry.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.DDTarget",
+                    "name": "DDTarget.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.ScrollManager",
+                    "name": "ScrollManager.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.data.ArrayStore",
+                    "name": "ArrayStore.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/data/"
+                },
+                {
+                    "clsName": "Ext.ComponentLoader",
+                    "name": "ComponentLoader.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.form.field.Checkbox",
+                    "name": "Checkbox.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/form/field/"
+                },
+                {
+                    "clsName": "Ext.grid.plugin.BufferedRenderer",
+                    "name": "BufferedRenderer.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/plugin/"
+                },
+                {
+                    "clsName": "Ext.layout.ContextItem",
+                    "name": "ContextItem.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/"
+                },
+                {
+                    "clsName": "Ext.layout.Context",
+                    "name": "Context.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/layout/"
+                },
+                {
+                    "clsName": "Ext.menu.CheckItem",
+                    "name": "CheckItem.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.menu.KeyNav",
+                    "name": "KeyNav.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.menu.Menu",
+                    "name": "Menu.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/menu/"
+                },
+                {
+                    "clsName": "Ext.grid.header.DragZone",
+                    "name": "DragZone.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/header/"
+                },
+                {
+                    "clsName": "Ext.dd.DropTarget",
+                    "name": "DropTarget.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.dd.DropZone",
+                    "name": "DropZone.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/dd/"
+                },
+                {
+                    "clsName": "Ext.grid.header.DropZone",
+                    "name": "DropZone.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/header/"
+                },
+                {
+                    "clsName": "Ext.grid.plugin.HeaderReorderer",
+                    "name": "HeaderReorderer.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/plugin/"
+                },
+                {
+                    "clsName": "Ext.grid.header.Container",
+                    "name": "Container.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/header/"
+                },
+                {
+                    "clsName": "Ext.grid.locking.HeaderContainer",
+                    "name": "HeaderContainer.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/locking/"
+                },
+                {
+                    "clsName": "Ext.grid.locking.Lockable",
+                    "name": "Lockable.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/locking/"
+                },
+                {
+                    "clsName": "Ext.resizer.ResizeTracker",
+                    "name": "ResizeTracker.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/resizer/"
+                },
+                {
+                    "clsName": "Ext.ShadowPool",
+                    "name": "ShadowPool.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.grid.ColumnComponentLayout",
+                    "name": "ColumnComponentLayout.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/"
+                },
+                {
+                    "clsName": "Ext.Shadow",
+                    "name": "Shadow.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/"
+                },
+                {
+                    "clsName": "Ext.grid.column.Column",
+                    "name": "Column.js",
+                    "path": "../JCertif%20Backoffice%202013/ext/src/grid/column/"
+                }
+            ]
+        },
+        {
+            "name": "Application - Production",
+            "target": "app-all.js",
+            "compress": true,
+            "files": [
+                {
+                    "path": "",
+                    "name": "all-classes.js"
+                },
+                {
+                    "path": "",
+                    "name": "app.js"
+                }
+            ]
+        }
+    ],
+    "resources": []
+}
