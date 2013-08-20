@@ -109,7 +109,7 @@ Ext.define('JCertifBO.controller.LoginController', {
         clientSecret = this.getAuthProvidersStore().findRecord('name', 'github').get('clientSecret'),
         scope = this.getAuthProvidersStore().findRecord('name', 'github').get('scope');
 		
-		_url = baseUrl + '?client_id='+ clientId + '&scope='+scope+'&redirect_uri='+BACKOFFICE_URL
+		_url = baseUrl + '?client_id='+ clientId + '&redirect_uri='+BACKOFFICE_URL
 		var socialWin = window.open(_url, "githubLoginWindow", 'scrollbars=1, width=800, height=600'); 
     var code;
     var controller = this;
@@ -174,7 +174,7 @@ Ext.define('JCertifBO.controller.LoginController', {
   validateGithubToken : function(clientId, clientSecret, code, loginWindow){
     Ext.Ajax.useDefaultXhrHeader = false;
     Ext.Ajax.cors = true;
-
+    Ext.Ajax.timeout = 60000;
     Ext.Ajax.request({
 			url : 'https://github.com/login/oauth/access_token',
 			params: {
@@ -182,6 +182,7 @@ Ext.define('JCertifBO.controller.LoginController', {
 			  client_secret: clientSecret,
 			  code: code
       },
+      mothod: 'POST',
 			loadMask: false,
 			success : function(response) {				  
 			  var accessToken = Ext.decode(response.responseText).access_token;
@@ -230,13 +231,35 @@ Ext.define('JCertifBO.controller.LoginController', {
 	},
 	
 	logout : function(btn) {
+	  var provider = Ext.util.Cookies.get('provider');
+	  var logoutUrl = Ext.util.Cookies.get('logoutUrl');
 		Ext.util.Cookies.clear('user');
     Ext.util.Cookies.clear('user_name');
     Ext.util.Cookies.clear('picture');
     Ext.util.Cookies.clear('provider');
-    Ext.util.Cookies.clear('access_token');
+    Ext.util.Cookies.clear('access_token');  
     Ext.state.Manager.clear();
-    window.location.reload();
+    if(logoutUrl != undefined){
+      Ext.Ajax.request({
+  			url : logoutUrl,
+  			loadMask: false,
+  			success : function(response) {
+          
+          window.location.reload();				  
+  			},
+  			failure : function(response) {
+  				Ext.MessageBox.show({
+  					title : 'Logout from '+ provider +' failed',
+  					msg : response.responseText,
+  					buttons : Ext.MessageBox.OK,
+  					icon : Ext.MessageBox.INFO
+  				});
+  			}
+  		});
+    }else{
+      window.location.reload();
+    }
+    
 	}
 	
 });
