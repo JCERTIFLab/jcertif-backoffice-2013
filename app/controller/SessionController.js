@@ -34,6 +34,9 @@ Ext.define('JCertifBO.controller.SessionController', {
       			'sessiongrid button[action=remove]' : {
       				  click : this.removeSession
       			},
+      			'sessiongrid button[action=export]' : {
+      				  click : this.exportSessions
+      			},
             'sessionadd button[action=add]' : {
       				  click : this.addSession
       			},
@@ -167,6 +170,36 @@ Ext.define('JCertifBO.controller.SessionController', {
   					});
   				}
   			});
+    },
+    
+    exportSessions: function(btn){
+      var filename = '2013_JCertif_Sessions.csv';
+      //extract data from grid as csv format
+      var data = Ext.ux.exporter.Exporter.exportAny(btn.up('gridpanel'), 'csv', filename);
+      //save data on the server in a temp file      
+      Ext.Ajax.request({
+          url: BACKEND_URL + '/admin/export/write',
+          params: {
+              access_token: Ext.util.Cookies.get('access_token'),
+              provider: Ext.util.Cookies.get('provider'),
+              user: Ext.util.Cookies.get('user'),
+              filename: filename,
+              data: data
+          },
+          success: function(response) {
+              //prompt a download of the temp file that was saved
+              var ifrm = document.getElementById('downloadFrame');
+              ifrm.src = BACKEND_URL + '/admin/export/read' + '?access_token=' + Ext.util.Cookies.get('access_token') + '&provider=' + Ext.util.Cookies.get('provider') + '&user=' + Ext.util.Cookies.get('user') + '&filename=' + filename;
+          },
+          failure: function(response){
+              Ext.MessageBox.show({
+    						title : 'Error',
+    						msg : response.responseText,
+    						buttons : Ext.MessageBox.OK,
+    						icon : Ext.MessageBox.ERROR
+    					});
+          }
+      });
     },
     
     cancel: function(btn){

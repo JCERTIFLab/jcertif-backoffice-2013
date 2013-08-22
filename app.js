@@ -8,6 +8,10 @@ Ext.application({
     name       : 'JCertifBO',
     appFolder  : 'app',
         
+    paths: {
+        'Ext.ux': 'ext/src/ux/'
+    },
+    
     controllers : [
         'LoginController',
         'HomeController',

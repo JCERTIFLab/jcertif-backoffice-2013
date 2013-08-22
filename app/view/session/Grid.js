@@ -6,7 +6,8 @@ Ext.define("JCertifBO.view.session.Grid", {
 
     requires: [
         'Ext.toolbar.Toolbar',
-        'Ext.form.field.Date'
+        'Ext.form.field.Date',
+        'Ext.ux.exporter.Exporter'
     ],
     
     border: false,
@@ -92,6 +93,14 @@ Ext.define("JCertifBO.view.session.Grid", {
                     iconCls: 'admin-options-refresh',
                     text: 'Refresh',
                     action: 'refresh'
+                },{
+                    iconCls: 'admin-options-download',
+                    text: 'Export',         
+                    action: 'export'                                 
+                },{
+                    iconCls: 'admin-options-upload',
+                    text: 'Import',
+                    action: 'import'
                 }]
             }],
 

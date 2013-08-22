@@ -90,6 +90,14 @@ Ext.define("JCertifBO.view.speaker.Grid", {
                     iconCls: 'admin-options-refresh',
                     text: 'Refresh',
                     action: 'refresh'
+                },{
+                    iconCls: 'admin-options-download',
+                    text: 'Export',         
+                    action: 'export'                                 
+                },{
+                    iconCls: 'admin-options-upload',
+                    text: 'Import',
+                    action: 'import'
                 }]
             }],
 

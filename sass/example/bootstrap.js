@@ -12,8 +12,8 @@ Ext.Loader.addClassPathMappings({
   "Ext.rtl.EventObjectImpl": "../../ext/src/rtl/EventObject.js"
 });
 Ext.ClassManager.addNameAlternateMappings({
-  "ExtThemeNeptune.container.ButtonGroup": [],
   "JCertifBO.model.SessionStatus": [],
+  "ExtThemeNeptune.container.ButtonGroup": [],
   "JCertifBO.view.room.Grid": [],
   "Ext.ux.ajax.DataSimlet": [],
   "Ext.ux.grid.TransformGrid": [],
@@ -33,6 +33,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.controller.ReferentielController": [],
   "JCertifBO.controller.SiteController": [],
   "JCertifBO.model.GoogleToken": [],
+  "Ext.ux.exporter.excelFormatter.Worksheet": [],
   "Ext.ux.form.MultiSelect": [
     "Ext.ux.Multiselect"
   ],
@@ -42,8 +43,10 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.view.Viewport": [],
   "ExtThemeNeptune.grid.column.RowNumberer": [],
   "JCertifBO.view.referentiel.Add": [],
-  "Ext.ux.PreviewPlugin": [],
+  "Ext.ux.exporter.excelFormatter.ExcelFormatter": [],
   "JCertifBO.controller.AdminOptionsController": [],
+  "Ext.ux.PreviewPlugin": [],
+  "Ext.ux.exporter.Button": [],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "JCertifBO.store.SponsorLevels": [],
@@ -51,6 +54,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.ProgressBarPager": [],
   "Ext.ux.CellDragDrop": [],
   "Ext.ux.ajax.Simlet": [],
+  "Ext.ux.exporter.excelFormatter.Style": [],
   "Ext.ux.SlidingPager": [],
   "Ext.ux.TabReorderer": [],
   "Ext.ux.grid.filter.NumericFilter": [],
@@ -58,16 +62,19 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.event.Recorder": [],
   "JCertifBO.view.sponsor.Form": [],
   "JCertifBO.view.session.Add": [],
+  "Ext.ux.exporter.wikiFormatter.WikiFormatter": [],
   "JCertifBO.view.site.Form": [],
   "JCertifBO.view.sponsor.Edit": [],
   "JCertifBO.model.Site": [],
+  "Ext.ux.exporter.excelFormatter.Cell": [],
   "Ext.ux.ajax.SimManager": [],
   "JCertifBO.model.Session": [],
   "Ext.ux.grid.filter.BooleanFilter": [],
   "JCertifBO.view.session.Form": [],
+  "Ext.ux.exporter.Base64": [],
   "Ext.ux.TabScrollerMenu": [],
-  "ExtThemeNeptune.menu.Separator": [],
   "JCertifBO.model.Title": [],
+  "ExtThemeNeptune.menu.Separator": [],
   "Ext.ux.IFrame": [],
   "JCertifBO.model.Speaker": [],
   "JCertifBO.view.Login": [],
@@ -96,8 +103,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.store.Speakers": [],
   "JCertifBO.view.sponsor.Grid": [],
   "JCertifBO.view.speaker.Add": [],
-  "Ext.ux.FieldReplicator": [],
   "JCertifBO.model.Room": [],
+  "Ext.ux.FieldReplicator": [],
   "JCertifBO.model.Category": [],
   "JCertifBO.store.Countries": [],
   "ExtThemeNeptune.panel.Panel": [],
@@ -106,12 +113,14 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.controller.RoomController": [],
   "JCertifBO.view.participant.Add": [],
   "Ext.ux.dd.PanelFieldDragZone": [],
+  "Ext.ux.exporter.excelFormatter.Workbook": [],
   "JCertifBO.view.speaker.Edit": [],
-  "ExtThemeNeptune.toolbar.Toolbar": [],
   "JCertifBO.model.SponsorLevel": [],
+  "ExtThemeNeptune.toolbar.Toolbar": [],
   "ExtThemeNeptune.tab.Tab": [],
   "JCertifBO.view.room.Form": [],
   "Ext.ux.GMapPanel": [],
+  "Ext.ux.exporter.Formatter": [],
   "JCertifBO.store.Cities": [],
   "Ext.ux.GroupTabPanel": [],
   "Ext.ux.DataView.LabelEditor": [],
@@ -147,6 +156,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "JCertifBO.view.session.Grid": [],
   "Ext.ux.DataView.Draggable": [],
   "Ext.ux.TabCloseMenu": [],
+  "Ext.ux.exporter.Exporter": [],
   "JCertifBO.controller.SessionController": [],
   "JCertifBO.view.site.Grid": [],
   "Ext.ux.DataTip": [],
@@ -160,11 +170,12 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.Spotlight": [],
   "ExtThemeNeptune.form.field.HtmlEditor": [],
   "Ext.ux.grid.FiltersFeature": [],
-  "ExtThemeNeptune.Component": []
+  "ExtThemeNeptune.Component": [],
+  "Ext.ux.exporter.csvFormatter.CsvFormatter": []
 });
 Ext.ClassManager.addNameAliasMappings({
-  "ExtThemeNeptune.container.ButtonGroup": [],
   "JCertifBO.model.SessionStatus": [],
+  "ExtThemeNeptune.container.ButtonGroup": [],
   "JCertifBO.view.room.Grid": [
     "widget.roomgrid"
   ],
@@ -196,6 +207,7 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.controller.ReferentielController": [],
   "JCertifBO.controller.SiteController": [],
   "JCertifBO.model.GoogleToken": [],
+  "Ext.ux.exporter.excelFormatter.Worksheet": [],
   "Ext.ux.form.MultiSelect": [
     "widget.multiselect",
     "widget.multiselectfield"
@@ -212,10 +224,14 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.referentiel.Add": [
     "widget.referentieladd"
   ],
+  "Ext.ux.exporter.excelFormatter.ExcelFormatter": [],
+  "JCertifBO.controller.AdminOptionsController": [],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
   ],
-  "JCertifBO.controller.AdminOptionsController": [],
+  "Ext.ux.exporter.Button": [
+    "widget.exporterbutton"
+  ],
   "JCertifBO.store.Sessions": [],
   "Ext.ux.ajax.SimXhr": [],
   "JCertifBO.store.SponsorLevels": [],
@@ -229,6 +245,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.ajax.Simlet": [
     "simlet.basic"
   ],
+  "Ext.ux.exporter.excelFormatter.Style": [],
   "Ext.ux.SlidingPager": [],
   "Ext.ux.TabReorderer": [],
   "Ext.ux.grid.filter.NumericFilter": [
@@ -242,6 +259,7 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.session.Add": [
     "widget.sessionadd"
   ],
+  "Ext.ux.exporter.wikiFormatter.WikiFormatter": [],
   "JCertifBO.view.site.Form": [
     "widget.siteform"
   ],
@@ -249,6 +267,7 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.sponsoredit"
   ],
   "JCertifBO.model.Site": [],
+  "Ext.ux.exporter.excelFormatter.Cell": [],
   "Ext.ux.ajax.SimManager": [],
   "JCertifBO.model.Session": [],
   "Ext.ux.grid.filter.BooleanFilter": [
@@ -257,11 +276,12 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.session.Form": [
     "widget.sessionform"
   ],
+  "Ext.ux.exporter.Base64": [],
   "Ext.ux.TabScrollerMenu": [
     "plugin.tabscrollermenu"
   ],
-  "ExtThemeNeptune.menu.Separator": [],
   "JCertifBO.model.Title": [],
+  "ExtThemeNeptune.menu.Separator": [],
   "Ext.ux.IFrame": [
     "widget.uxiframe"
   ],
@@ -314,8 +334,8 @@ Ext.ClassManager.addNameAliasMappings({
   "JCertifBO.view.speaker.Add": [
     "widget.speakeradd"
   ],
-  "Ext.ux.FieldReplicator": [],
   "JCertifBO.model.Room": [],
+  "Ext.ux.FieldReplicator": [],
   "JCertifBO.model.Category": [],
   "JCertifBO.store.Countries": [],
   "ExtThemeNeptune.panel.Panel": [],
@@ -330,11 +350,12 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.participantadd"
   ],
   "Ext.ux.dd.PanelFieldDragZone": [],
+  "Ext.ux.exporter.excelFormatter.Workbook": [],
   "JCertifBO.view.speaker.Edit": [
     "widget.speakeredit"
   ],
-  "ExtThemeNeptune.toolbar.Toolbar": [],
   "JCertifBO.model.SponsorLevel": [],
+  "ExtThemeNeptune.toolbar.Toolbar": [],
   "ExtThemeNeptune.tab.Tab": [],
   "JCertifBO.view.room.Form": [
     "widget.roomform"
@@ -342,6 +363,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.GMapPanel": [
     "widget.gmappanel"
   ],
+  "Ext.ux.exporter.Formatter": [],
   "JCertifBO.store.Cities": [],
   "Ext.ux.GroupTabPanel": [
     "widget.grouptabpanel"
@@ -397,6 +419,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.TabCloseMenu": [
     "plugin.tabclosemenu"
   ],
+  "Ext.ux.exporter.Exporter": [],
   "JCertifBO.controller.SessionController": [],
   "JCertifBO.view.site.Grid": [
     "widget.sitegrid"
@@ -421,7 +444,8 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.FiltersFeature": [
     "feature.filters"
   ],
-  "ExtThemeNeptune.Component": []
+  "ExtThemeNeptune.Component": [],
+  "Ext.ux.exporter.csvFormatter.CsvFormatter": []
 });
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/Component.js");
 Ext.Loader.loadScript("../../ext/packages/ext-theme-neptune/overrides/panel/Panel.js");

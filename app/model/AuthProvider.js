@@ -6,6 +6,7 @@ Ext.define('JCertifBO.model.AuthProvider', {
         { name: 'authorizationUrl', type: 'auto' },
         { name: 'accessTokenUrl', type: 'auto' },
         { name: 'requestTokenUrl', type: 'auto' },
+        { name: 'logoutUrl', type: 'auto' },
         { name: 'clientId', type: 'auto' },
         { name: 'clientSecret', type: 'auto' },
         { name: 'scope', type: 'auto' }
