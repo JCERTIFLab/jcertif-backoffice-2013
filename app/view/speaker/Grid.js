@@ -4,7 +4,7 @@ Ext.define("JCertifBO.view.speaker.Grid", {
     
     cls: 'admin-options-grid',
 
-    requires: ['Ext.toolbar.Toolbar'],
+    requires: ['Ext.toolbar.Toolbar', 'Ext.ux.exporter.Exporter'],
     
     border: false,
     

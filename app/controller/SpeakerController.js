@@ -7,7 +7,8 @@ Ext.define('JCertifBO.controller.SpeakerController', {
     views: [
         'speaker.Grid',
         'speaker.Add',
-        'speaker.Edit'
+        'speaker.Edit',
+        'speaker.Export'
     ],
 
 
@@ -17,7 +18,9 @@ Ext.define('JCertifBO.controller.SpeakerController', {
         {ref: 'speakerFormTitles', selector: 'speakerform combo#title'},
         {ref: 'speakerFormCountries', selector: 'speakerform combo#country'},
         {ref: 'speakerFormCities', selector: 'speakerform combo#city'},
-        {ref: 'speakerFormPasswordField', selector: 'speakerform textfield#password'}
+        {ref: 'speakerFormPasswordField', selector: 'speakerform textfield#password'},
+        {ref: 'speakerExportForm', selector: 'speakerexport'},
+        {ref: 'speakerExportFormFormats', selector: 'speakerexport combo#format'}
     ],
     
     init: function() {
@@ -35,7 +38,7 @@ Ext.define('JCertifBO.controller.SpeakerController', {
       				  click : this.removeSpeaker
       			},
       			'speakergrid button[action=export]' : {
-      				  click : this.exportSpeakers
+      				  click : this.showExportDialog
       			},
             'speakeradd button[action=add]' : {
       				  click : this.addSpeaker
@@ -48,6 +51,9 @@ Ext.define('JCertifBO.controller.SpeakerController', {
       			},
       			'speakeredit button[action=cancel]' : {
       				  click : this.cancel
+      			},
+      			'speakerexport button[action=export]' : {
+      				  click : this.exportSpeakers
       			}
         });
     },
@@ -66,6 +72,10 @@ Ext.define('JCertifBO.controller.SpeakerController', {
       this.getSpeakerFormCountries().bindStore(this.getCountriesStore());
       this.getSpeakerFormCities().bindStore(this.getCitiesStore());
       this.getSpeakerFormPasswordField().setDisabled(true);
+    },
+    
+    showExportDialog: function(btn){     
+      Ext.create("JCertifBO.view.speaker.Export");
     },
     
     refreshSpeakerGrid: function(btn){
@@ -171,22 +181,25 @@ Ext.define('JCertifBO.controller.SpeakerController', {
     },
     
     exportSpeakers: function(btn){
-      var filename = '2013_JCertif_Speakers.csv';
+      var win    = btn.up('window'),
+            format = this.getSpeakerExportFormFormats().getValue();
+      var filename = '2013_JCertif_Speakers.' + Ext.ux.exporter.Exporter.getFormatterByName(format).extension;
       //extract data from grid as csv format
-      var data = Ext.ux.exporter.Exporter.exportAny(btn.up('gridpanel'), 'csv', filename);
+      var data = Ext.ux.exporter.Exporter.exportAny(this.getSpeakerGrid(), format, filename);
+      var params = {};
+      params['access_token'] = Ext.util.Cookies.get('access_token');
+      params['provider'] = Ext.util.Cookies.get('provider');
+      params['user'] = Ext.util.Cookies.get('user');
+      params['filename'] = filename;
+      params['data'] = data;
       //save data on the server in a temp file
       Ext.Ajax.request({
           url: BACKEND_URL + '/admin/export/write',
-          params: {
-              access_token: Ext.util.Cookies.get('access_token'),
-              provider: Ext.util.Cookies.get('provider'),
-              user: Ext.util.Cookies.get('user'),
-              filename: filename,
-              data: data
-          },
+          jsonData : Ext.JSON.encode(params),
           success: function(response) {
               //prompt a download of the temp file that was saved
               var ifrm = document.getElementById('downloadFrame');
+              win.close();
               ifrm.src = BACKEND_URL + '/admin/export/read' + '?access_token=' + Ext.util.Cookies.get('access_token') + '&provider=' + Ext.util.Cookies.get('provider') + '&user=' + Ext.util.Cookies.get('user') + '&filename=' + filename;
           },
           failure: function(response){

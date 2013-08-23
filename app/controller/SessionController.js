@@ -7,7 +7,8 @@ Ext.define('JCertifBO.controller.SessionController', {
     views: [
         'session.Grid',
         'session.Add',
-        'session.Edit'
+        'session.Edit',
+        'session.Export'
     ],
 
 
@@ -17,7 +18,9 @@ Ext.define('JCertifBO.controller.SessionController', {
         {ref: 'sessionFormStatuses', selector: 'sessionform combo#status'},
         {ref: 'sessionFormCategories', selector: 'sessionform combo#category'},
         {ref: 'sessionFormSpeakers', selector: 'sessionform combo#speakers'},
-        {ref: 'sessionFormRooms', selector: 'sessionform combo#room'}
+        {ref: 'sessionFormRooms', selector: 'sessionform combo#room'},
+        {ref: 'sessionExportForm', selector: 'sessionexport'},
+        {ref: 'sessionExportFormFormats', selector: 'sessionexport combo#format'}
     ],
     
     init: function() {
@@ -35,7 +38,7 @@ Ext.define('JCertifBO.controller.SessionController', {
       				  click : this.removeSession
       			},
       			'sessiongrid button[action=export]' : {
-      				  click : this.exportSessions
+      				  click : this.showExportDialog
       			},
             'sessionadd button[action=add]' : {
       				  click : this.addSession
@@ -48,6 +51,9 @@ Ext.define('JCertifBO.controller.SessionController', {
       			},
       			'sessionedit button[action=cancel]' : {
       				  click : this.cancel
+      			},
+      			'sessionexport button[action=export]' : {
+      				  click : this.exportSessions
       			}
         });
     },
@@ -67,6 +73,10 @@ Ext.define('JCertifBO.controller.SessionController', {
       this.getSessionFormCategories().bindStore(this.getCategoriesStore());
       this.getSessionFormSpeakers().bindStore(this.getSpeakersStore());
       this.getSessionFormRooms().bindStore(this.getRoomsStore());
+    },
+    
+    showExportDialog: function(btn){     
+      Ext.create("JCertifBO.view.session.Export");
     },
     
     refreshSessionGrid: function(btn){
@@ -173,22 +183,25 @@ Ext.define('JCertifBO.controller.SessionController', {
     },
     
     exportSessions: function(btn){
-      var filename = '2013_JCertif_Sessions.csv';
+      var win    = btn.up('window'),
+          format = this.getSessionExportFormFormats().getValue();
+      var filename = '2013_JCertif_Sessions.' + Ext.ux.exporter.Exporter.getFormatterByName(format).extension;
       //extract data from grid as csv format
-      var data = Ext.ux.exporter.Exporter.exportAny(btn.up('gridpanel'), 'csv', filename);
+      var data = Ext.ux.exporter.Exporter.exportAny(this.getSessionGrid(), format, filename);
+      var params = {};
+      params['access_token'] = Ext.util.Cookies.get('access_token');
+      params['provider'] = Ext.util.Cookies.get('provider');
+      params['user'] = Ext.util.Cookies.get('user');
+      params['filename'] = filename;
+      params['data'] = data;
       //save data on the server in a temp file      
       Ext.Ajax.request({
           url: BACKEND_URL + '/admin/export/write',
-          params: {
-              access_token: Ext.util.Cookies.get('access_token'),
-              provider: Ext.util.Cookies.get('provider'),
-              user: Ext.util.Cookies.get('user'),
-              filename: filename,
-              data: data
-          },
+          jsonData : Ext.JSON.encode(params),
           success: function(response) {
               //prompt a download of the temp file that was saved
               var ifrm = document.getElementById('downloadFrame');
+              win.close();
               ifrm.src = BACKEND_URL + '/admin/export/read' + '?access_token=' + Ext.util.Cookies.get('access_token') + '&provider=' + Ext.util.Cookies.get('provider') + '&user=' + Ext.util.Cookies.get('user') + '&filename=' + filename;
           },
           failure: function(response){
