@@ -160,6 +160,7 @@ Ext.define('JCertifBO.controller.SpeakerController', {
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSpeakerGrid().getStore().model.modelName).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSpeakerGrid().getStore().removeAll();
   				  controller.getSpeakerGrid().getStore().load();
   				  win.close();
             Ext.MessageBox.show({
@@ -185,7 +186,7 @@ Ext.define('JCertifBO.controller.SpeakerController', {
             format = this.getSpeakerExportFormFormats().getValue();
       var filename = '2013_JCertif_Speakers.' + Ext.ux.exporter.Exporter.getFormatterByName(format).extension;
       //extract data from grid as csv format
-      var data = Ext.ux.exporter.Exporter.exportAny(this.getSpeakerGrid(), format, filename);
+      var data = Ext.ux.exporter.Exporter.exportAny(this.getSpeakerGrid(), format, {});
       var params = {};
       params['access_token'] = Ext.util.Cookies.get('access_token');
       params['provider'] = Ext.util.Cookies.get('provider');

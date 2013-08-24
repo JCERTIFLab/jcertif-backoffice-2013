@@ -150,6 +150,7 @@ Ext.define('JCertifBO.controller.ParticipantController', {
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getParticipantGrid().getStore().model.modelName).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getParticipantGrid().getStore().removeAll();
   				  controller.getParticipantGrid().getStore().load();
   				  win.close();
             Ext.MessageBox.show({

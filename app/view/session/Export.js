@@ -4,6 +4,7 @@ Ext.define("JCertifBO.view.session.Export", {
   	title : "Choix du format d'export",
   	width : 200,
   	height : 150,
+  	border : 0,
   	autoShow : true,
   	closable : true,
   	draggable : true,

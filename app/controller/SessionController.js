@@ -162,6 +162,7 @@ Ext.define('JCertifBO.controller.SessionController', {
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSessionGrid().getStore().model.modelName, 0, false, true, true).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSessionGrid().getStore().removeAll();
   				  controller.getSessionGrid().getStore().load();
   				  win.close();
             Ext.MessageBox.show({
@@ -187,7 +188,7 @@ Ext.define('JCertifBO.controller.SessionController', {
           format = this.getSessionExportFormFormats().getValue();
       var filename = '2013_JCertif_Sessions.' + Ext.ux.exporter.Exporter.getFormatterByName(format).extension;
       //extract data from grid as csv format
-      var data = Ext.ux.exporter.Exporter.exportAny(this.getSessionGrid(), format, filename);
+      var data = Ext.ux.exporter.Exporter.exportAny(this.getSessionGrid(), format, {});
       var params = {};
       params['access_token'] = Ext.util.Cookies.get('access_token');
       params['provider'] = Ext.util.Cookies.get('provider');

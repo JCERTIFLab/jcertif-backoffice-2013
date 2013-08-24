@@ -19,7 +19,7 @@ Ext.define("Ext.ux.exporter.excelFormatter.Worksheet", {
       title      : "Workbook",
       columns    : store.fields == undefined ? {} : store.fields.items
     });
-
+    
     Ext.apply(this, config);
 
     Ext.ux.exporter.excelFormatter.Worksheet.superclass.constructor.apply(this, arguments);

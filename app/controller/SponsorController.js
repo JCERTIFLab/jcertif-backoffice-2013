@@ -145,6 +145,7 @@ Ext.define('JCertifBO.controller.SponsorController', {
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSponsorGrid().getStore().model.modelName, 0, false, true, true).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSponsorGrid().getStore().removeAll();
   				  controller.getSponsorGrid().getStore().load();
   				  win.close();
             Ext.MessageBox.show({

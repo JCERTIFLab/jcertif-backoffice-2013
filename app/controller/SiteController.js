@@ -143,6 +143,7 @@ Ext.define('JCertifBO.controller.SiteController', {
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getSiteGrid().getStore().model.modelName).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getSiteGrid().getStore().removeAll();
   				  controller.getSiteGrid().getStore().load();
   				  win.close();
             Ext.MessageBox.show({

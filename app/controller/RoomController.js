@@ -140,6 +140,7 @@ Ext.define('JCertifBO.controller.RoomController', {
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getRoomGrid().getStore().model.modelName).get('updateUrl'),
   				jsonData : Ext.JSON.encode(data),
   				success : function(response) {
+  				  controller.getRoomGrid().getStore().removeAll();
   				  controller.getRoomGrid().getStore().load();
   				  win.close();
             Ext.MessageBox.show({
