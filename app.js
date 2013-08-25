@@ -1,6 +1,6 @@
 var BACKEND_URL='http://jcertif-backend.msomda.cloudbees.net';
-var BACKOFFICE_URL='http://jcertiflab.github.io/jcertif-backoffice-20.4';
-var VERSION='0.4';
+var BACKOFFICE_URL='http://jcertiflab.github.io/jcertif-backoffice-20.5-SNAPSHOT';
+var VERSION='0.5-SNAPSHOT';
 
 var splashscreen;
 
