@@ -913,6 +913,26 @@
         "name": "export.Launch",
         "viewFileName": "export/Launch"
       }
+    },
+    "app/view/session/Import.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "session.Import",
+        "name": "session.Import",
+        "viewFileName": "session/Import"
+      }
+    },
+    "app/view/speaker/Import.js": {
+      "source": "{viewFileName}.js.tpl.merge",
+      "version": "acde5ea901286ca2f976bcddea23e159dbaa0e6f",
+      "parameters": {
+        "appName": "JCertifBO",
+        "viewName": "speaker.Import",
+        "name": "speaker.Import",
+        "viewFileName": "speaker/Import"
+      }
     }
   }
 }

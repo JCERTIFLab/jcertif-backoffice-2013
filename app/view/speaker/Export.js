@@ -24,8 +24,7 @@ Ext.define("JCertifBO.view.speaker.Export", {
   	  var formats = Ext.create('Ext.data.Store', {
           fields: ['name', 'value'],
           data : [
-              {"name":"csv", "value":"csv"},
-              {"name":"xls", "value":"excel"}
+              {"name":"csv", "value":"csv"}
           ]
       });
   		this.items = [ {
@@ -33,6 +32,7 @@ Ext.define("JCertifBO.view.speaker.Export", {
   			store : formats,
   			displayField: 'name',
         valueField: 'value',
+        value: 'csv',
         width : 75,
   	    height : 25,
   			name : 'format',

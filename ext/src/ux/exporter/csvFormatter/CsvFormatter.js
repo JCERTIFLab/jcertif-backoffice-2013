@@ -14,7 +14,7 @@ Ext.define("Ext.ux.exporter.csvFormatter.CsvFormatter", {
     /**
      * @cfg {String} separator The separator to use. Defaults to ';'
      */
-    separator: ",",
+    separator: ";",
 
     /**
      * @cfg {String} extension The extension to use. Defaults to 'csv'

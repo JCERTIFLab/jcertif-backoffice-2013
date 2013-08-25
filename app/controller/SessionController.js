@@ -8,7 +8,8 @@ Ext.define('JCertifBO.controller.SessionController', {
         'session.Grid',
         'session.Add',
         'session.Edit',
-        'session.Export'
+        'session.Export',
+        'session.Import'
     ],
 
 
@@ -40,6 +41,9 @@ Ext.define('JCertifBO.controller.SessionController', {
       			'sessiongrid button[action=export]' : {
       				  click : this.showExportDialog
       			},
+      			'sessiongrid button[action=import]' : {
+      				  click : this.showImportDialog
+      			},
             'sessionadd button[action=add]' : {
       				  click : this.addSession
       			},
@@ -54,7 +58,13 @@ Ext.define('JCertifBO.controller.SessionController', {
       			},
       			'sessionexport button[action=export]' : {
       				  click : this.exportSessions
-      			}
+      			},
+      			'sessionimport button[action=import]' : {
+      				  click : this.importSessions
+      			},
+      			'sessionimport button[action=cancel]' : {
+      				  click : this.cancel
+      			},
         });
     },
     
@@ -77,6 +87,10 @@ Ext.define('JCertifBO.controller.SessionController', {
     
     showExportDialog: function(btn){     
       Ext.create("JCertifBO.view.session.Export");
+    },
+    
+    showImportDialog: function(btn){     
+      Ext.create("JCertifBO.view.session.Import");
     },
     
     refreshSessionGrid: function(btn){
@@ -214,6 +228,95 @@ Ext.define('JCertifBO.controller.SessionController', {
     					});
           }
       });
+    },
+    
+    importSessions: function(btn){
+      var win    = btn.up('window'),
+          form = win.down('form').getForm(),
+          file = Ext.getCmp('sessions-file-upload').getEl().down('input[type=file]').dom.files[0];
+      
+      var controller = this;
+      if (form.isValid()) {
+          //extract data from grid as csv format
+          var reader = new FileReader();
+          var sessions = [];
+          var errors = [];
+          var waitingBox = Ext.MessageBox.show({
+             msg: 'Uploading your sessions, please wait...',
+             progressText: 'Uploading...',
+             width:300,
+             wait:true,
+             waitConfig: {interval:200},
+             icon:'ext-mb-upload',
+             iconHeight: 50,
+             animateTarget: 'sessions-file-upload'
+          });
+          var totalNumberOfSessions = 0 ;
+          var proceededNumberOfSessions = 0 ;
+          reader.onload = (function(theFile) {
+              return function(e) {
+                  var allTextLines = e.target.result.split(/\r\n|\n/);
+                  var headers = allTextLines[0].split(';');
+                  totalNumberOfSessions = allTextLines.length - 1;
+                  for (var i=1; i<allTextLines.length; i++) {
+                      var data = allTextLines[i].split(';');
+                      if (data.length == headers.length) {         
+                          var params = {};
+                          for (var j=0; j<headers.length; j++) {
+                              params[headers[j].toLowerCase().replace(/\"/g,'')] = data[j].replace(/\"/g,'');
+                          }
+                          Ext.Ajax.request({
+                            url: BACKEND_URL + controller.getAdminOptionsStore().findRecord('model', controller.getSessionGrid().getStore().model.modelName, 0, false, true, true).get('createUrl'),
+                            jsonData : Ext.JSON.encode(params),
+                            success: function(response, options) {
+                                sessions.push(Ext.decode(options.jsonData).title);
+                            },
+                            failure: function(response, options){
+                                errors.push(Ext.decode(options.jsonData).title);
+                                
+                            },
+                            callback : function(){
+                                proceededNumberOfSessions++;
+                                if(totalNumberOfSessions == proceededNumberOfSessions){
+                                  waitingBox.close();
+                                  if(errors.length == 0){
+                                    Ext.MessageBox.show({
+                          						title : 'Success',
+                          						msg : 'Your sessions have been uploaded',
+                          						buttons : Ext.MessageBox.OK,
+                          						icon : Ext.MessageBox.INFO
+                          					});
+                                  }else{
+                                    var errorReportHtml = '';
+                                    for (var j=0; j<errors.length; j++) {
+                                        errorReportHtml += errors[j] + '<br />';
+                                    }
+                                    Ext.MessageBox.show({
+                          						title : 'Warning',
+                          						msg : 'One or more sessions upload failed : <br/>' + errorReportHtml,
+                          						buttons : Ext.MessageBox.OK,
+                          						icon : Ext.MessageBox.WARNING
+                          					});
+                                  }
+                                  controller.getSessionGrid().getStore().load();
+                                }
+                            }
+                        });
+                      }else{
+                        waitingBox.close();
+                        Ext.MessageBox.show({
+              						title : 'Error',
+              						msg : 'File ' + file.name + ' not well formated',
+              						buttons : Ext.MessageBox.OK,
+              						icon : Ext.MessageBox.ERROR
+              					});
+                      }
+                  }
+              };
+          })(file);         
+          win.close();
+          reader.readAsBinaryString(file);
+      }
     },
     
     cancel: function(btn){
