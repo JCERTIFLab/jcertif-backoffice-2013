@@ -7,7 +7,8 @@ Ext.define("JCertifBO.view.session.Grid", {
     requires: [
         'Ext.toolbar.Toolbar',
         'Ext.form.field.Date',
-        'Ext.ux.exporter.Exporter'
+        'Ext.ux.exporter.Exporter',
+        'Ext.grid.column.Date'
     ],
     
     border: false,
@@ -47,16 +48,18 @@ Ext.define("JCertifBO.view.session.Grid", {
                 dataIndex: 'category',
                 flex: 1
             }, {
+                xtype: 'datecolumn',
                 text: 'Start',
                 dataIndex: 'start',
                 flex: 1,
-                renderer: Ext.util.Format.dateRenderer('d/m/Y H:m')
+                format: 'd/m/Y H:i'
                 
             }, {
+                xtype: 'datecolumn',
                 text: 'End',
                 dataIndex: 'end',
                 flex: 1,
-                renderer: Ext.util.Format.dateRenderer('d/m/Y H:m')
+                format: 'd/m/Y H:i'
             }, {
                 text: 'Speakers',
                 dataIndex: 'speakers',

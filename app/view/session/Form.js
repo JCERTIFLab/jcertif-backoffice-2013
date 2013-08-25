@@ -54,14 +54,14 @@ Ext.define("JCertifBO.view.session.Form", {
   		xtype : 'datefield',
   		fieldLabel : 'Start',
   		name : 'start',
-  		format: 'd/m/Y H:m',
+  		format: 'd/m/Y H:i',
   		itemId : 'start',
   		emptyText : 'start'
   	},{
   		xtype : 'datefield',
   		fieldLabel : 'End',
   		name : 'end',
-  		format: 'd/m/Y H:m',
+  		format: 'd/m/Y H:i',
   		itemId : 'end',
   		emptyText : 'end'
   	},{
