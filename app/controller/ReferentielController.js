@@ -50,11 +50,13 @@ Ext.define('JCertifBO.controller.ReferentielController', {
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider')
       });
+      var controller = this;
   		if (form.isValid()) {
   			Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getReferentielGrid().getStore().model.modelName).get('createUrl'),
   				jsonData : Ext.JSON.encode(form.getValues()),
   				success : function(response) {
+  				  controller.getReferentielGrid().getStore().load();
             win.close();														
   				},
   				failure : function(response) {
@@ -77,6 +79,7 @@ Ext.define('JCertifBO.controller.ReferentielController', {
         access_token: Ext.util.Cookies.get('access_token'),
         provider: Ext.util.Cookies.get('provider'),
       };
+      var controller = this;
       Ext.Ajax.request({
   				url : BACKEND_URL + this.getAdminOptionsStore().findRecord('model', this.getReferentielGrid().getStore().model.modelName).get('removeUrl'),
   				jsonData : Ext.JSON.encode(data),
@@ -86,7 +89,8 @@ Ext.define('JCertifBO.controller.ReferentielController', {
   						msg : "L'&eacute;l&eacute;ment &agrave; bien &eacute;t&eacute; supprim&eacute;",
   						buttons : Ext.MessageBox.OK,
   						icon : Ext.MessageBox.INFO
-  					});														
+  					});		
+            controller.getReferentielGrid().getStore().load();												
   				},
   				failure : function(response) {
   					Ext.MessageBox.show({
