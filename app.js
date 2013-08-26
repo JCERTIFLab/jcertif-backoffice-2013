@@ -22,7 +22,9 @@ Ext.application({
         'RoomController',
         'SessionController',
         'SpeakerController',
-        'ParticipantController'
+        'ParticipantController',
+        'CountryController',
+        'CityController'
     ],      
     autoCreateViewport: true
 });
